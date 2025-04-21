@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
 
-    <link rel="stylesheet" href="../../assets/docs/css/custom.css">
+    <link rel="stylesheet" href="css/custom.css">
 </head>
 
 <body>
@@ -17,6 +17,7 @@
                 <a class="sidebar-brand" href="대시보드.html">
                     <img src="../../assets/dist/img/logo.svg" alt="아이오엔링고">
                 </a>
+
                 <ul class="sidebar-nav">
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="대시보드.html">
@@ -287,237 +288,40 @@
 
                     <div class="row mb-2 mb-xl-3">
                         <div class="col-12 d-flex justify-content-between mb-3">
-                            <h3>엔진관리 > 엔진모니터링 > 엔진수정</h3>
+                            <h3>서비스 관리 > 서비스 시나리오</h3>
                         </div>
 
                         <div class="col-12">
                             <div class="tab">
                                 <ul class="nav nav-tabs" role="tablist">
                                     <li class="nav-item" role="presentation">
-                                        <a class="nav-link active" href="#service-set" data-bs-toggle="tab" role="tab"
-                                            aria-selected="false" tabindex="0">환경설정</a>
+                                        <a class="nav-link active" href="#service-scenario" data-bs-toggle="tab" role="tab"
+                                            aria-selected="false" tabindex="0">시나리오</a>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <a class="nav-link" href="#service-layout" data-bs-toggle="tab" role="tab"
-                                            aria-selected="true">레이아웃 설정</a>
+                                        <a class="nav-link" href="#service-simulation" data-bs-toggle="tab" role="tab"
+                                            aria-selected="true">시뮬레이션</a>
                                     </li>
                                 </ul>
                                 <div class="tab-content p-0">
-                                    <div class="tab-pane active show" id="service-set" role="tabpanel">
+                                    <div class="tab-pane active show" id="service-scenario" role="tabpanel">
                                         <div class="card shadow-none">
                                             <div class="card-header">
-                                                <h5 class="card-title">서비스 환경 설정</h5>
+                                                <h5 class="card-title">서비스 프로세스</h5>
                                             </div>
                                             <div class="card-body">
-                                                <div class="row">
-                                                    <div class="col-6">
-                                                        <form id="service-set-form" novalidate="novalidate">
-                                                            <div class="input-group mb-3 error-placeholder">
-                                                                <label class="form-label">서비스 명</label>
-                                                                <input type="text" class="form-control"
-                                                                    name="server-name" placeholder="서비스 명칭을 입력해주세요"
-                                                                    value="">
-                                                                <button type="button"
-                                                                    class="btn btn-primary">중복체크</button>
-                                                            </div>
-                                                            <div class="input-group mb-3 error-placeholder">
-                                                                <label class="form-label">서비스 설명</label>
-                                                                <textarea class="form-control"
-                                                                    placeholder="서비스 설명을 입력해 주세요" rows="3"></textarea>
-                                                            </div>
-                                                            <div class="input-group mb-3 error-placeholder">
-                                                                <label class="form-label">엔진선택</label>
-                                                                <select class="form-control" name="engine-category">
-                                                                    <option value="">기본 설정된 엔진</option>
-                                                                    <option value="1">1</option>
-                                                                    <option value="2">2</option>
-                                                                    <option value="3">3</option>
-                                                                    <option value="4">4</option>
-                                                                </select>
-                                                            </div>
-                                                            <div class="input-group mb-3">
-                                                                <label class="form-label">생성 날짜</label>
-                                                                <div class="align-items-center d-flex gap-1 flex-1">
-                                                                    <input class="form-control" type="text"
-                                                                        name="datesingle">
-                                                                    <span>~</span>
-                                                                    <input class="form-control" type="text"
-                                                                        name="datesingle">
-                                                                </div>
-                                                                <div class="align-items-center d-flex ms-2">
-                                                                    <label class="form-check form-check-inline">
-                                                                        <input class="form-check-input" type="checkbox"
-                                                                            value="option1">
-                                                                        <span class="form-check-label">1년</span>
-                                                                    </label>
-                                                                    <label class="form-check form-check-inline">
-                                                                        <input class="form-check-input" type="checkbox"
-                                                                            value="option2">
-                                                                        <span class="form-check-label">3년</span>
-                                                                    </label>
-                                                                    <label class="form-check form-check-inline">
-                                                                        <input class="form-check-input" type="checkbox"
-                                                                            value="option3">
-                                                                        <span class="form-check-label">5년</span>
-                                                                    </label>
-                                                                    <label class="form-check form-check-inline">
-                                                                        <input class="form-check-input" type="checkbox"
-                                                                            value="option4">
-                                                                        <span class="form-check-label">영구사용</span>
-                                                                    </label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="card-footer">
-                                                                <button type="button" class="btn btn-primary">등록</button>
-                                                                <button type="button"
-                                                                    class="btn btn-primary">수정</button>
-                                                                <button type="button" class="btn btn-danger"
-                                                                    data-bs-toggle="modal"
-                                                                    data-bs-target="#serviceModal01">삭제</button>
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-bs-toggle="modal"
-                                                                    data-bs-target="#serviceModal03">취소</button>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
+                                               
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane" id="service-layout" role="tabpanel">
+                                    <div class="tab-pane" id="service-simulation" role="tabpanel">
                                         <div class="card shadow-none">
                                             <div class="card-header">
-                                                <h5 class="card-title">서비스 레이아웃 설정</h5>
+                                                <h5 class="card-title">서비스 프로세스</h5>
                                             </div>
-                                            <form id="service-layout-form" novalidate="novalidate">
-                                                <div class="card-body">
-                                                    <div class="row">
-                                                        <div class="col-6">
-                                                            <div class="mb-3 error-placeholder">
-                                                                <label class="form-label">타이틀</label>
-                                                                <input type="text" class="form-control"
-                                                                    name="server-title"
-                                                                    placeholder="서비스의 타이틀을 입력해 주세요(20자 제한)" value="">
-                                                            </div>
-                                                            <div class="mb-3 error-placeholder">
-                                                                <label class="form-label">시작 메시지</label>
-                                                                <textarea class="form-control"
-                                                                    placeholder="서비스 시작 메시지를 입력해 주세요(50자 제한)"
-                                                                    rows="5"></textarea>
-                                                            </div>
-                                                            <div class="mb-3 error-placeholder">
-                                                                <label class="form-label">도움말</label>
-                                                                <textarea class="form-control"
-                                                                    placeholder="도움말 메시지를 입력해주세요(200자 제한)"
-                                                                    rows="5"></textarea>
-                                                            </div>
-                                                            <div class="mb-3 error-placeholder">
-                                                                <label class="form-label">봇 이름</label>
-                                                                <input type="text" class="form-control"
-                                                                    name="server-bot-title"
-                                                                    placeholder="AI 봇의 이름을 입력해 주세요(20자 제한)" value="">
-                                                            </div>
-                                                            <div class="mb-3">
-                                                                <label class="form-label">메시지 부가기능</label>
-                                                                <div class="align-items-center d-flex">
-                                                                    <label class="form-check form-check-inline">
-                                                                        <input class="form-check-input" type="checkbox"
-                                                                            value="option1">
-                                                                        <span class="form-check-label">답변 재생성</span>
-                                                                    </label>
-                                                                    <label class="form-check form-check-inline">
-                                                                        <input class="form-check-input" type="checkbox"
-                                                                            value="option2">
-                                                                        <span class="form-check-label">만족도
-                                                                            조사(좋아요/싫어요)</span>
-                                                                    </label>
-                                                                    <label class="form-check form-check-inline">
-                                                                        <input class="form-check-input" type="checkbox"
-                                                                            value="option3">
-                                                                        <span class="form-check-label">답변 복사</span>
-                                                                    </label>
-                                                                    <label class="form-check form-check-inline">
-                                                                        <input class="form-check-input" type="checkbox"
-                                                                            value="option4">
-                                                                        <span class="form-check-label">대화 내보내기</span>
-                                                                    </label>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <div class="file-img-group mb-3">
-                                                                <label class="form-label">서비스 로고</label>
-                                                                <div class="file-img-area">
-                                                                    <input type="file" name="service-favicon"
-                                                                        class="file-input" placeholder="" value="">
-                                                                    <div class="file-img"></div>
-                                                                    <div class="file-option">
-                                                                        <button type="button"
-                                                                            class="btn btn-primary btn-file-upload">파일
-                                                                            업로드</button>
-                                                                        <p class="mt-1">※ 서비스 로고 이미지 권장 사이즈는 200*30 입니다.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="file-img-group mb-3">
-                                                                <label class="form-label">파비콘</label>
-                                                                <div class="file-img-area">
-                                                                    <input type="file" name="service-logo"
-                                                                        class="file-input" placeholder="" value="">
-                                                                    <div class="file-img"></div>
-                                                                    <div class="file-option">
-                                                                        <button type="button"
-                                                                            class="btn btn-primary btn-file-upload">파일
-                                                                            업로드</button>
-                                                                        <p class="mt-1">※ 파비콘 이미지 권장 사이즈는 16*16 입니다.</p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="file-img-group mb-3">
-                                                                <label class="form-label">서비스 시작</label>
-                                                                <div class="file-img-area">
-                                                                    <input type="file" name="service-start"
-                                                                        class="file-input" placeholder="" value="">
-                                                                    <div class="file-img"></div>
-                                                                    <div class="file-option">
-                                                                        <button type="button"
-                                                                            class="btn btn-primary btn-file-upload">파일
-                                                                            업로드</button>
-                                                                        <p class="mt-1">※ 서비스 시작 이미지 권장 사이즈는 256*256
-                                                                            입니다.</p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="file-img-group mb-3">
-                                                                <label class="form-label">봇 아이콘</label>
-                                                                <div class="file-img-area">
-                                                                    <input type="file" name="bot-icon"
-                                                                        class="file-input" placeholder="" value="">
-                                                                    <div class="file-img"></div>
-                                                                    <div class="file-option">
-                                                                        <button type="button"
-                                                                            class="btn btn-primary btn-file-upload">파일
-                                                                            업로드</button>
-                                                                        <p class="mt-1">※ 서비스 시작 이미지 권장 사이즈는 256*256
-                                                                            입니다.</p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12">
-                                                            <button type="button" class="btn btn-primary">등록</button>
-                                                            <button type="button" class="btn btn-primary">수정</button>
-                                                            <button type="button" class="btn btn-danger"
-                                                                data-bs-toggle="modal"
-                                                                data-bs-target="#serviceModal01">삭제</button>
-                                                            <button type="button" class="btn btn-secondary"
-                                                                data-bs-toggle="modal"
-                                                                data-bs-target="#serviceModal03">취소</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </form>
+                                            <div class="card-body">
+                                               
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -578,7 +382,7 @@
         </div>
     </div>
 
-    <script src="../../assets/docs/js/app.js"></script>
+    <script src="js/app.js"></script>
     <script src="../../assets/dist/js/common.js"></script>
 </body>
 

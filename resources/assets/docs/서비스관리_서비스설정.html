@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
 
-    <link rel="stylesheet" href="../../assets/docs/css/custom.css">
+    <link rel="stylesheet" href="css/custom.css">
 </head>
 
 <body>
@@ -38,12 +38,12 @@
                                 <path d="M12 2v10"></path>
                                 <path d="M18.4 6.6a9 9 0 1 1-12.77.04"></path>
                             </svg>
-                            <span class="align-middle">모델관리</span>
+                            <span class="align-middle">엔진관리</span>
                         </a>
                         <ul id="engine-manage" class="sidebar-dropdown list-unstyled collapse"
                             data-bs-parent="#sidebar">
                             <li class="sidebar-item">
-                                <a class="sidebar-link" href="모델관리_모델모니터링.html">모델 모니터링</a>
+                                <a class="sidebar-link" href="엔진관리_엔진모니터링.html">엔진 모니터링</a>
                             </li>
                         </ul>
                     </li>
@@ -209,7 +209,7 @@
                         </a>
                         <ul id="log-analysis" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                             <li class="sidebar-item">
-                                <a class="sidebar-link" href="로그분석_모델로그.html">모델 로그</a>
+                                <a class="sidebar-link" href="로그분석_엔진로그.html">엔진 로그</a>
                             </li>
                             <li class="sidebar-item">
                                 <a class="sidebar-link" href="로그분석_임베딩로그.html">임베딩 로그</a>
@@ -288,84 +288,224 @@
 
                     <div class="row mb-2 mb-xl-3">
                         <div class="col-12 d-flex justify-content-between mb-3">
-                            <h3>모델관리 > 모델설정 > 모델추가</h3>
+                            <h3>서비스 관리 > 서비스 설정</h3>
+                            <a href="모델관리_모델설정_모델추가.html" class="btn btn-primary">등록</a>
                         </div>
-
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5 class="card-title">모델추가</h5>
+                                    <h5 class="card-title">서비스 검색</h5>
                                 </div>
                                 <div class="card-body">
-                                    <form id="validation-form" novalidate="novalidate">
-                                        <div class="input-group mb-3 error-placeholder ">
-                                            <label class="form-label">모델명</label>
-                                            <input type="text" class="form-control" name="model-name"
-                                                placeholder="모델명을 입력해주세요" value="">
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div class="input-group mb-3 error-placeholder">
-                                                    <label class="form-label">모델설명</label>
-                                                    <input type="text" class="form-control" name="model-explanation"
-                                                        placeholder="모델 설명을 입력해주세요" value="">
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="input-group mb-3 error-placeholder">
-                                                    <label class="form-label">Reranker 모델 종류</label>
-                                                    <select class="form-control" name="model-category">
-                                                        <option value="">Reranker를 선택해 주세요.</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="input-group mb-3 error-placeholder">
-                                                    <label class="form-label">엔진</label>
-                                                    <select class="form-control" name="model-engine">
-                                                        <option value="">엔진을 선택해 주세요.</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="input-group mb-3 error-placeholder">
-                                                    <label class="form-label">임베딩 모델 종류</label>
-                                                    <select class="form-control" name="model-embedding">
-                                                        <option value="">임베딩 모델을 선택해 주세요.</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                    </select>
-                                                </div>
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <div class="error-placeholder">
+                                                <label class="form-label">서비스명</label>
+                                                <select class="form-control" name="service-name">
+                                                    <option value="0">전체</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                </select>
                                             </div>
                                         </div>
-                                        <div class="input-group mb-3 error-placeholder">
-                                            <label class="form-label">배포 상태</label>
-                                            <label class="form-check me-4">
-                                                <input name="engine-situation" type="radio" class="form-check-input">
-                                                <span class="form-check-label">On</span>
-                                            </label>
-                                            <label class="form-check">
-                                                <input name="engine-situation" type="radio" class="form-check-input">
-                                                <span class="form-check-label">Off</span>
-                                            </label>
+                                        <div class="col-2">
+                                            <div class="error-placeholder">
+                                                <label class="form-label">엔진명</label>
+                                                <select class="form-control" name="service-engine-name">
+                                                    <option value="0">전체</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                        <div class="card-footer">
-                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                                data-bs-target="#modelModal04">등록</button>
-                                            <button type="button" class="btn btn-secondary">취소</button>
+                                        <div class="col-2">
+                                            <div class="error-placeholder">
+                                                <label class="form-label">사용 여부</label>
+                                                <select class="form-control" name="service-non">
+                                                    <option value="0">전체</option>
+                                                    <option value="1">사용</option>
+                                                    <option value="2">사용 안함</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </form>
+                                        <div class="col-4">
+                                            <div class="error-placeholder">
+                                                <label class="form-label">검색어</label>
+                                                <input type="text" class="form-control" name="service-search-keyword"
+                                                    placeholder="검색어를 입력하세요.">
+                                            </div>
+                                        </div>
+                                        <div class="col d-flex align-items-end justify-content-end">
+                                            <div class="d-flex gap-1">
+                                                <button type="button" class="btn btn-primary">검색</button>
+                                                <button type="button" class="btn btn-secondary">초기화</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header d-flex align-items-center justify-content-between pb-0">
+                                    <h5 class="card-title">서비스 목록</h5>
+                                    <div class="ms-auto">
+                                        <button type="button"
+                                            class="btn btn-outline-success ms-auto gap-1 d-flex align-items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" data-lucide="download"
+                                                class="lucide lucide-download">
+                                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                                <polyline points="7 10 12 15 17 10"></polyline>
+                                                <line x1="12" x2="12" y1="15" y2="3"></line>
+                                            </svg>엑셀 다운로드</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div id="datatables-reponsive_wrapper"
+                                        class="dt-container dt-bootstrap5 dt-empty-footer">
+                                        <div class="row mt-2 justify-content-md-center">
+                                            <div class="col-12 ">
+                                                <table id="datatables-reponsive"
+                                                    class="table table-striped w-100 dataTable dtr-inline"
+                                                    aria-describedby="datatables-reponsive_info">
+                                                    <colgroup>
+                                                        <col data-dt-column="0" style="width: 5%;">
+                                                        <col data-dt-column="1" style="width: 14%;">
+                                                        <col data-dt-column="1" style="width: 10%;">
+                                                        <col data-dt-column="2" style="width: auto;">
+                                                        <col data-dt-column="3" style="width: 20%;">
+                                                        <col data-dt-column="4" style="width: 10%;">
+                                                        <col data-dt-column="5" style="width: 10%;">
+                                                        <col data-dt-column="5" style="width: 10%;">
+                                                    </colgroup>
+                                                    <thead>
+                                                        <tr role="row">
+                                                            <th data-dt-column="1" rowspan="1" colspan="1"
+                                                                class="text-center" aria-sort="ascending">No</th>
+                                                            <th data-dt-column="2" rowspan="1" colspan="1"
+                                                                class="dt-orderable-asc dt-orderable-desc dt-ordering-asc text-center"
+                                                                aria-sort="ascending">
+                                                                <span class="dt-column-title">서비스명</span>
+                                                                <span class="dt-column-order"></span>
+                                                            </th>
+                                                            <th data-dt-column="3" rowspan="1" colspan="1"
+                                                                class="dt-orderable-asc dt-orderable-desc dt-ordering-asc text-center">
+                                                                <span class="dt-column-title">엔진명</span>
+                                                                <span class="dt-column-order"></span>
+                                                            </th>
+                                                            <th data-dt-column="4" rowspan="1" colspan="1"
+                                                                class="text-center">
+                                                                <span class="dt-column-title">설명</span>
+                                                            </th>
+                                                            <th data-dt-column="5" rowspan="1" colspan="1"
+                                                                class="text-center">
+                                                                <span class="dt-column-title">서비스 기간</span>
+                                                            </th>
+                                                            <th data-dt-column="6" rowspan="1" colspan="1"
+                                                                class="text-center">
+                                                                <span class="dt-column-title">사용 여부</span>
+                                                            </th>
+                                                            <th data-dt-column="7" rowspan="1" colspan="1"
+                                                                class="dt-orderable-asc dt-orderable-desc dt-ordering-asc text-center">
+                                                                <span class="dt-column-title">등록일</span>
+                                                                <span class="dt-column-order"></span>
+                                                            </th>
+                                                            <th data-dt-column="8" rowspan="1" colspan="1"
+                                                                class="dt-orderable-asc dt-orderable-desc dt-ordering-asc text-center">
+                                                                <span class="dt-column-title">수정일</span>
+                                                                <span class="dt-column-order"></span>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>1</td>
+                                                            <td tabindex="0">
+                                                                <a href="서비스관리_서비스설정_서비스수정.html">서비스명(전체노출)</a>
+                                                            </td>
+                                                            <td>엔진명(전체 노출)</td>
+                                                            <td>서비스 설명(2줄 초과하면 말줄임표 처리)</td>
+                                                            <td>YYYY-MM-DD ~ YYYY-MM-DD</td>
+                                                            <td>
+                                                                <button type="button"
+                                                                    class="btn btn-pill btn-warning btn-sm"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#serviceModal01">No</button>
+                                                            </td>
+                                                            <td>YYYY-MM-DD</td>
+                                                            <td>YYYY-MM-DD</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2</td>
+                                                            <td tabindex="0">
+                                                                <a href="서비스관리_서비스설정_서비스수정.html">서비스명(전체노출)</a>
+                                                            </td>
+                                                            <td>엔진명(전체 노출)</td>
+                                                            <td>서비스 설명(2줄 초과하면 말줄임표 처리)</td>
+                                                            <td>YYYY-MM-DD ~ YYYY-MM-DD</td>
+                                                            <td>
+                                                                <button type="button"
+                                                                    class="btn btn-pill btn-info btn-sm"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#serviceModal01">Yes</button>
+                                                            </td>
+                                                            <td>YYYY-MM-DD</td>
+                                                            <td>YYYY-MM-DD</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-2">
+                                            <div class="col-12">
+                                                <div class="dt-paging paging_full_numbers">
+                                                    <ul class="pagination justify-content-center">
+                                                        <li class="dt-paging-button page-item disabled"><a
+                                                                class="page-link first"
+                                                                aria-controls="datatables-reponsive"
+                                                                aria-disabled="true" aria-label="First"
+                                                                data-dt-idx="first" tabindex="-1">«</a></li>
+                                                        <li class="dt-paging-button page-item disabled"><a
+                                                                class="page-link previous"
+                                                                aria-controls="datatables-reponsive"
+                                                                aria-disabled="true" aria-label="Previous"
+                                                                data-dt-idx="previous" tabindex="-1">‹</a></li>
+                                                        <li class="dt-paging-button page-item active"><a href="#"
+                                                                class="page-link" aria-controls="datatables-reponsive"
+                                                                aria-current="page" data-dt-idx="0" tabindex="0">1</a>
+                                                        </li>
+                                                        <li class="dt-paging-button page-item"><a href="#"
+                                                                class="page-link" aria-controls="datatables-reponsive"
+                                                                data-dt-idx="1" tabindex="0">2</a></li>
+                                                        <li class="dt-paging-button page-item"><a href="#"
+                                                                class="page-link" aria-controls="datatables-reponsive"
+                                                                data-dt-idx="2" tabindex="0">3</a></li>
+                                                        <li class="dt-paging-button page-item"><a href="#"
+                                                                class="page-link" aria-controls="datatables-reponsive"
+                                                                data-dt-idx="3" tabindex="0">4</a></li>
+                                                        <li class="dt-paging-button page-item"><a href="#"
+                                                                class="page-link" aria-controls="datatables-reponsive"
+                                                                data-dt-idx="4" tabindex="0">5</a></li>
+                                                        <li class="dt-paging-button page-item"><a href="#"
+                                                                class="page-link" aria-controls="datatables-reponsive"
+                                                                data-dt-idx="5" tabindex="0">6</a></li>
+                                                        <li class="dt-paging-button page-item"><a href="#"
+                                                                class="page-link next"
+                                                                aria-controls="datatables-reponsive" aria-label="Next"
+                                                                data-dt-idx="next" tabindex="0">›</a></li>
+                                                        <li class="dt-paging-button page-item"><a href="#"
+                                                                class="page-link last"
+                                                                aria-controls="datatables-reponsive" aria-label="Last"
+                                                                data-dt-idx="last" tabindex="0">»</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -392,27 +532,22 @@
         </div>
     </div>
 
-    <div class="modal fade" id="modelModal04" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="serviceModal01" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">비어있는 모델 값 확인</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
                 <div class="modal-body m-3">
-                    <p class="mb-0">비어있는 모델 정보 값이 있습니다.<br>
-                        모든 정보를 입력해 주세요.</p>
+                    <!-- 내부 텍스트 사용여부에 따라 분기처리 -->
+                    <p class="mb-0">해당 서비스를 활성화 하시겠습니까?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">확인</button>
+                    <button type="button" class="btn btn-primary">확인</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
                 </div>
             </div>
         </div>
     </div>
 
-
-
-    <script src="../../assets/docs/js/app.js"></script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>

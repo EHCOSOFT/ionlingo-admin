@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
 
-    <link rel="stylesheet" href="../../assets/docs/css/custom.css">
+    <link rel="stylesheet" href="css/custom.css">
 </head>
 
 <body>
@@ -285,215 +285,239 @@
 
             <main class="content">
                 <div class="container-fluid p-0">
+
                     <div class="row mb-2 mb-xl-3">
                         <div class="col-12 d-flex justify-content-between mb-3">
-                            <h3>지식 그룹 관리 > 프롬프트 관리</h3>
-                            <a href="지식그룹관리_프롬프트관리_프롬프트등록.html" class="btn btn-primary">등록</a>
+                            <h3>지식 관리 > 지식 설정 > 지식 등록</h3>
                         </div>
+
                         <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5 class="card-title">조회</h5>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-2">
-                                            <div class="error-placeholder">
-                                                <label class="form-label">서비스</label>
-                                                <select class="form-control" name="service-select">
-                                                    <option value="0">전체</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                </select>
+                            <div class="tab">
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <a class="nav-link active" href="#knowledge-set" data-bs-toggle="tab" role="tab"
+                                            aria-selected="false" tabindex="0">환경설정</a>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <a class="nav-link" href="#knowledge-sllm-set" data-bs-toggle="tab" role="tab"
+                                            aria-selected="true">sLLM 설정</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content p-0">
+                                    <div class="tab-pane active show" id="knowledge-set" role="tabpanel">
+                                        <div class="card shadow-none">
+                                            <div class="card-header">
+                                                <h5 class="card-title">서비스 환경 설정</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <form id="knowledge-set-form" novalidate="novalidate">
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <div class="input-group mb-3 error-placeholder">
+                                                                <label class="form-label">임베딩 모델</label>
+                                                                <select class="form-control"
+                                                                    name="embedding-model-option">
+                                                                    <option value="">임베딩 모델을 선택해주세요</option>
+                                                                    <option value="1">1</option>
+                                                                    <option value="2">2</option>
+                                                                    <option value="3">3</option>
+                                                                    <option value="4">4</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <div class="input-group mb-3 error-placeholder">
+                                                                <label class="form-label">Chunk Size</label>
+                                                                <select class="form-control" name="chunk-size-option">
+                                                                    <option value="">Chunk Size를 선택해 주세요</option>
+                                                                    <option value="1">1</option>
+                                                                    <option value="2">2</option>
+                                                                    <option value="3">3</option>
+                                                                    <option value="4">4</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="input-group mb-3 error-placeholder">
+                                                                <label class="form-label">Raptor 사용여부</label>
+                                                                <label class="form-check me-4">
+                                                                    <input name="raptor-non" type="radio"
+                                                                        class="form-check-input">
+                                                                    <span class="form-check-label">사용</span>
+                                                                </label>
+                                                                <label class="form-check">
+                                                                    <input name="raptor-non" type="radio"
+                                                                        class="form-check-input">
+                                                                    <span class="form-check-label">사용 안 함</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="input-group mb-3 error-placeholder">
+                                                                <label class="form-label">지식 명</label>
+                                                                <input type="text" class="form-control"
+                                                                    name="knowledge-name" placeholder="지식 명칭을 입력해주세요"
+                                                                    value="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="input-group mb-3 error-placeholder">
+                                                                <label class="form-label">지식 설명</label>
+                                                                <textarea class="form-control"
+                                                                    placeholder="지식 설명을 입력해 주세요" rows="5"></textarea>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="card-footer">
+                                                        <button type="button" class="btn btn-primary">등록</button>
+                                                        <button type="button" class="btn btn-primary">수정</button>
+                                                        <button type="button" class="btn btn-danger"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#serviceModal01">삭제</button>
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#serviceModal03">취소</button>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
-                                        <div class="col-2">
-                                            <div class="error-placeholder">
-                                                <label class="form-label">지식</label>
-                                                <select class="form-control" name="knowledge-select">
-                                                    <option value="0">전체</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                </select>
+                                    </div>
+                                    <div class="tab-pane" id="knowledge-sllm-set" role="tabpanel">
+                                        <div class="card shadow-none">
+                                            <div class="card-header">
+                                                <h5 class="card-title">지식 설정</h5>
                                             </div>
-                                        </div>
-                                        <div class="col-3">
-                                            <div class="error-placeholder">
-                                                <label class="form-label">프롬프트 명</label>
-                                                <input type="text" class="form-control" name="prompt-name"
-                                                    placeholder="프롬프트 명을 입력하세요.">
-                                            </div>
-                                        </div>
-                                        <div class="col-3">
-                                            <div class="mb-xl-0">
-                                                <label class="form-label">등록 기간</label>
-                                                <div class="align-items-center d-flex gap-1">
-                                                    <input class="form-control" type="text" name="datesingle">
-                                                    <span>~</span>
-                                                    <input class="form-control" type="text" name="datesingle">
+                                            <form id="service-layout-form" novalidate="novalidate">
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <div class="mb-3 error-placeholder">
+                                                                <label class="form-label">타이틀</label>
+                                                                <input type="text" class="form-control"
+                                                                    name="server-title"
+                                                                    placeholder="서비스의 타이틀을 입력해 주세요(20자 제한)" value="">
+                                                            </div>
+                                                            <div class="mb-3 error-placeholder">
+                                                                <label class="form-label">시작 메시지</label>
+                                                                <textarea class="form-control"
+                                                                    placeholder="서비스 시작 메시지를 입력해 주세요(50자 제한)"
+                                                                    rows="5"></textarea>
+                                                            </div>
+                                                            <div class="mb-3 error-placeholder">
+                                                                <label class="form-label">도움말</label>
+                                                                <textarea class="form-control"
+                                                                    placeholder="도움말 메시지를 입력해주세요(200자 제한)"
+                                                                    rows="5"></textarea>
+                                                            </div>
+                                                            <div class="mb-3 error-placeholder">
+                                                                <label class="form-label">봇 이름</label>
+                                                                <input type="text" class="form-control"
+                                                                    name="server-bot-title"
+                                                                    placeholder="AI 봇의 이름을 입력해 주세요(20자 제한)" value="">
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label class="form-label">메시지 부가기능</label>
+                                                                <div class="align-items-center d-flex">
+                                                                    <label class="form-check form-check-inline">
+                                                                        <input class="form-check-input" type="checkbox"
+                                                                            value="option1">
+                                                                        <span class="form-check-label">답변 재생성</span>
+                                                                    </label>
+                                                                    <label class="form-check form-check-inline">
+                                                                        <input class="form-check-input" type="checkbox"
+                                                                            value="option2">
+                                                                        <span class="form-check-label">만족도
+                                                                            조사(좋아요/싫어요)</span>
+                                                                    </label>
+                                                                    <label class="form-check form-check-inline">
+                                                                        <input class="form-check-input" type="checkbox"
+                                                                            value="option3">
+                                                                        <span class="form-check-label">답변 복사</span>
+                                                                    </label>
+                                                                    <label class="form-check form-check-inline">
+                                                                        <input class="form-check-input" type="checkbox"
+                                                                            value="option4">
+                                                                        <span class="form-check-label">대화 내보내기</span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <div class="file-img-group mb-3">
+                                                                <label class="form-label">서비스 로고</label>
+                                                                <div class="file-img-area">
+                                                                    <input type="file" name="service-favicon"
+                                                                        class="file-input" placeholder="" value="">
+                                                                    <div class="file-img"></div>
+                                                                    <div class="file-option">
+                                                                        <button type="button"
+                                                                            class="btn btn-primary btn-file-upload">파일
+                                                                            업로드</button>
+                                                                        <p class="mt-1">※ 서비스 로고 이미지 권장 사이즈는 200*30 입니다.
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="file-img-group mb-3">
+                                                                <label class="form-label">파비콘</label>
+                                                                <div class="file-img-area">
+                                                                    <input type="file" name="service-logo"
+                                                                        class="file-input" placeholder="" value="">
+                                                                    <div class="file-img"></div>
+                                                                    <div class="file-option">
+                                                                        <button type="button"
+                                                                            class="btn btn-primary btn-file-upload">파일
+                                                                            업로드</button>
+                                                                        <p class="mt-1">※ 파비콘 이미지 권장 사이즈는 16*16 입니다.</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="file-img-group mb-3">
+                                                                <label class="form-label">서비스 시작</label>
+                                                                <div class="file-img-area">
+                                                                    <input type="file" name="service-start"
+                                                                        class="file-input" placeholder="" value="">
+                                                                    <div class="file-img"></div>
+                                                                    <div class="file-option">
+                                                                        <button type="button"
+                                                                            class="btn btn-primary btn-file-upload">파일
+                                                                            업로드</button>
+                                                                        <p class="mt-1">※ 서비스 시작 이미지 권장 사이즈는 256*256
+                                                                            입니다.</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="file-img-group mb-3">
+                                                                <label class="form-label">봇 아이콘</label>
+                                                                <div class="file-img-area">
+                                                                    <input type="file" name="bot-icon"
+                                                                        class="file-input" placeholder="" value="">
+                                                                    <div class="file-img"></div>
+                                                                    <div class="file-option">
+                                                                        <button type="button"
+                                                                            class="btn btn-primary btn-file-upload">파일
+                                                                            업로드</button>
+                                                                        <p class="mt-1">※ 서비스 시작 이미지 권장 사이즈는 256*256
+                                                                            입니다.</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <button type="button" class="btn btn-primary">등록</button>
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#serviceModal03">취소</button>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="col d-flex align-items-end justify-content-end">
-                                            <div class="d-flex gap-1">
-                                                <button type="button" class="btn btn-primary">검색</button>
-                                                <button type="button" class="btn btn-secondary">초기화</button>
-                                            </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-header d-flex align-items-center justify-content-between pb-0">
-                                    <h5 class="card-title">프롬프트 목록</h5>
-                                    <div class="ms-auto d-flex gap-1">
-                                        <button type="button"
-                                            class="btn btn-outline-danger ms-auto gap-1 d-flex align-items-center">
-                                            선택삭제</button>
-                                        <button type="button"
-                                            class="btn btn-outline-success ms-auto gap-1 d-flex align-items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round" data-lucide="download"
-                                                class="lucide lucide-download">
-                                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                                                <polyline points="7 10 12 15 17 10"></polyline>
-                                                <line x1="12" x2="12" y1="15" y2="3"></line>
-                                            </svg>엑셀 다운로드</button>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <div id="datatables-reponsive_wrapper"
-                                        class="dt-container dt-bootstrap5 dt-empty-footer">
-                                        <div class="row mt-2 justify-content-md-center">
-                                            <div class="col-12 ">
-                                                <table id="datatables-reponsive"
-                                                    class="table table-striped w-100 dataTable dtr-inline"
-                                                    aria-describedby="datatables-reponsive_info">
-                                                    <colgroup>
-                                                        <col data-dt-column="0" style="width: 3%; min-width: 40px;">
-                                                        <col data-dt-column="1" style="width: 3%; min-width: 40px;">
-                                                        <col data-dt-column="2" style="width: 15%; min-width: 180px;">
-                                                        <col data-dt-column="3" style="width: 15%;  min-width: 220px;">
-                                                        <col data-dt-column="4" style="width: auto;">
-                                                        <col data-dt-column="5" style="width: 10%;">
-                                                        <col data-dt-column="6" style="width: 10%;">
-                                                        <col data-dt-column="7" style="width: 10%;">
-                                                    </colgroup>
-                                                    <thead>
-                                                        <tr role="row">
-                                                            <th data-dt-column="1" rowspan="1" colspan="1"
-                                                                class="text-center" aria-sort="ascending">
-                                                                <label class="form-label">
-                                                                    <input type="checkbox" class="form-check-input">
-                                                                </label>
-                                                            </th>
-                                                            <th data-dt-column="2" rowspan="1" colspan="1"
-                                                                class="text-center" aria-sort="ascending">No</th>
-                                                            <th data-dt-column="3" rowspan="1" colspan="1"
-                                                                class="dt-orderable-asc dt-orderable-desc dt-ordering-asc text-center"
-                                                                aria-sort="ascending">
-                                                                <span class="dt-column-title">지식 명</span>
-                                                                <span class="dt-column-order"></span>
-                                                            </th>
-                                                            <th data-dt-column="4" rowspan="1" colspan="1"
-                                                                class="dt-orderable-asc dt-orderable-desc dt-ordering-asc text-center">
-                                                                <span class="dt-column-title">프롬프트 명</span>
-                                                                <span class="dt-column-order"></span>
-                                                            </th>
-                                                            <th data-dt-column="5" rowspan="1" colspan="1"
-                                                                class="text-center">
-                                                                <span class="dt-column-title">프롬프트 내용</span>
-                                                            </th>
-                                                            <th data-dt-column="6" rowspan="1" colspan="1"
-                                                                class="text-center">
-                                                                <span class="dt-column-title">작성자</span>
-                                                            </th>
-                                                            <th data-dt-column="7" rowspan="1" colspan="1"
-                                                                class="dt-orderable-asc dt-orderable-desc dt-ordering-asc text-center">
-                                                                <span class="dt-column-title">등록일</span>
-                                                                <span class="dt-column-order"></span>
-                                                            </th>
-                                                            <th data-dt-column="8" rowspan="1" colspan="1"
-                                                                class="dt-orderable-asc dt-orderable-desc dt-ordering-asc text-center">
-                                                                <span class="dt-column-title">수정일</span>
-                                                                <span class="dt-column-order"></span>
-                                                            </th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>
-                                                                <label class="form-label">
-                                                                    <input type="checkbox" class="form-check-input">
-                                                                </label>
-                                                            </td>
-                                                            <td>1</td>
-                                                            <td>지식 명칭(텍스트 전체노출)</td>
-                                                            <td tabindex="0">
-                                                                <a href="#">프롬프트 명칭(텍스트 전체노출)</a>
-                                                            </td>
-                                                            <td>프롬프트 내용(2줄 초과 시말줄임표 처리)</td>
-                                                            <td>홍길동</td>
-                                                            <td>YYYY-MM-DD</td>
-                                                            <td>YYYY-MM-DD</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                        <div class="row mt-2">
-                                            <div class="col-12">
-                                                <div class="dt-paging paging_full_numbers">
-                                                    <ul class="pagination justify-content-center">
-                                                        <li class="dt-paging-button page-item disabled"><a
-                                                                class="page-link first"
-                                                                aria-controls="datatables-reponsive"
-                                                                aria-disabled="true" aria-label="First"
-                                                                data-dt-idx="first" tabindex="-1">«</a></li>
-                                                        <li class="dt-paging-button page-item disabled"><a
-                                                                class="page-link previous"
-                                                                aria-controls="datatables-reponsive"
-                                                                aria-disabled="true" aria-label="Previous"
-                                                                data-dt-idx="previous" tabindex="-1">‹</a></li>
-                                                        <li class="dt-paging-button page-item active"><a href="#"
-                                                                class="page-link" aria-controls="datatables-reponsive"
-                                                                aria-current="page" data-dt-idx="0" tabindex="0">1</a>
-                                                        </li>
-                                                        <li class="dt-paging-button page-item"><a href="#"
-                                                                class="page-link" aria-controls="datatables-reponsive"
-                                                                data-dt-idx="1" tabindex="0">2</a></li>
-                                                        <li class="dt-paging-button page-item"><a href="#"
-                                                                class="page-link" aria-controls="datatables-reponsive"
-                                                                data-dt-idx="2" tabindex="0">3</a></li>
-                                                        <li class="dt-paging-button page-item"><a href="#"
-                                                                class="page-link" aria-controls="datatables-reponsive"
-                                                                data-dt-idx="3" tabindex="0">4</a></li>
-                                                        <li class="dt-paging-button page-item"><a href="#"
-                                                                class="page-link" aria-controls="datatables-reponsive"
-                                                                data-dt-idx="4" tabindex="0">5</a></li>
-                                                        <li class="dt-paging-button page-item"><a href="#"
-                                                                class="page-link" aria-controls="datatables-reponsive"
-                                                                data-dt-idx="5" tabindex="0">6</a></li>
-                                                        <li class="dt-paging-button page-item"><a href="#"
-                                                                class="page-link next"
-                                                                aria-controls="datatables-reponsive" aria-label="Next"
-                                                                data-dt-idx="next" tabindex="0">›</a></li>
-                                                        <li class="dt-paging-button page-item"><a href="#"
-                                                                class="page-link last"
-                                                                aria-controls="datatables-reponsive" aria-label="Last"
-                                                                data-dt-idx="last" tabindex="0">»</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -518,12 +542,12 @@
         </div>
     </div>
 
-    <div class="modal fade" id="serviceModal01" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="serviceModal03" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body m-3">
-                    <!-- 내부 텍스트 사용여부에 따라 분기처리 -->
-                    <p class="mb-0">해당 서비스를 활성화 하시겠습니까?</p>
+                    <p class="mb-0">작성하던 내용을 모두 잃게 됩니다.
+                        정말 취소하시겠습니까?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary">확인</button>
@@ -533,7 +557,7 @@
         </div>
     </div>
 
-    <script src="../../assets/docs/js/app.js"></script>
+    <script src="js/app.js"></script>
     <script src="../../assets/dist/js/common.js"></script>
 </body>
 

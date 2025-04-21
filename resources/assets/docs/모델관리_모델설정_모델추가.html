@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
 
-    <link rel="stylesheet" href="../../assets/docs/css/custom.css">
+    <link rel="stylesheet" href="css/custom.css">
 </head>
 
 <body>
@@ -17,6 +17,7 @@
                 <a class="sidebar-brand" href="대시보드.html">
                     <img src="../../assets/dist/img/logo.svg" alt="아이오엔링고">
                 </a>
+
                 <ul class="sidebar-nav">
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="대시보드.html">
@@ -37,12 +38,12 @@
                                 <path d="M12 2v10"></path>
                                 <path d="M18.4 6.6a9 9 0 1 1-12.77.04"></path>
                             </svg>
-                            <span class="align-middle">엔진관리</span>
+                            <span class="align-middle">모델관리</span>
                         </a>
                         <ul id="engine-manage" class="sidebar-dropdown list-unstyled collapse"
                             data-bs-parent="#sidebar">
                             <li class="sidebar-item">
-                                <a class="sidebar-link" href="엔진관리_엔진모니터링.html">엔진 모니터링</a>
+                                <a class="sidebar-link" href="모델관리_모델모니터링.html">모델 모니터링</a>
                             </li>
                         </ul>
                     </li>
@@ -208,7 +209,7 @@
                         </a>
                         <ul id="log-analysis" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                             <li class="sidebar-item">
-                                <a class="sidebar-link" href="로그분석_엔진로그.html">엔진 로그</a>
+                                <a class="sidebar-link" href="로그분석_모델로그.html">모델 로그</a>
                             </li>
                             <li class="sidebar-item">
                                 <a class="sidebar-link" href="로그분석_임베딩로그.html">임베딩 로그</a>
@@ -285,148 +286,86 @@
             <main class="content">
                 <div class="container-fluid p-0">
 
-                    <h1 class="h3 mb-3">Dashboard</h1>
-                    <div class="row">
-                        <div class="col-12 col-lg-6">
-                            <div class="card flex-fill w-100">
-                                <div class="card-header align-items-center d-flex justify-content-between">
-                                    <h5 class="card-title">서비스별 사용자</h5>
-                                    <a href="#" class="btn btn-outline-secondary">상세보기 +</a>
-                                </div>
-                                <div class="card-body">
-                                    <div class="chart">
-                                        <div class="chartjs-size-monitor">
-                                            <div class="chartjs-size-monitor-expand">
-                                                <div class=""></div>
-                                            </div>
-                                            <div class="chartjs-size-monitor-shrink">
-                                                <div class=""></div>
-                                            </div>
-                                        </div>
-                                        <canvas id="chartjs-line" width="621" height="300"
-                                            style="display: block; width: 621px; height: 300px;"
-                                            class="chartjs-render-monitor"></canvas>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="row mb-2 mb-xl-3">
+                        <div class="col-12 d-flex justify-content-between mb-3">
+                            <h3>모델관리 > 모델설정 > 모델추가</h3>
                         </div>
 
-                        <div class="col-12 col-lg-6">
+                        <div class="col-12">
                             <div class="card">
-                                <div class="card-header align-items-center d-flex justify-content-between">
-                                    <h5 class="card-title">지식별 대화</h5>
-                                    <a href="#" class="btn btn-outline-secondary">상세보기 +</a>
+                                <div class="card-header">
+                                    <h5 class="card-title">모델추가</h5>
                                 </div>
                                 <div class="card-body">
-                                    <div class="chart">
-                                        <div class="chartjs-size-monitor">
-                                            <div class="chartjs-size-monitor-expand">
-                                                <div class=""></div>
-                                            </div>
-                                            <div class="chartjs-size-monitor-shrink">
-                                                <div class=""></div>
-                                            </div>
+                                    <form id="validation-form" novalidate="novalidate">
+                                        <div class="input-group mb-3 error-placeholder ">
+                                            <label class="form-label">모델명</label>
+                                            <input type="text" class="form-control" name="model-name"
+                                                placeholder="모델명을 입력해주세요" value="">
                                         </div>
-                                        <canvas id="chartjs-bar" width="621" height="300"
-                                            style="display: block; width: 621px; height: 300px;"
-                                            class="chartjs-render-monitor"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="col-12 col-lg-6">
-                            <div class="card">
-                                <div class="card-header align-items-center d-flex justify-content-between">
-                                    <h5 class="card-title">사용자 유형별 지식 사용량</h5>
-                                    <a href="#" class="btn btn-outline-secondary">상세보기 +</a>
-                                </div>
-                                <div class="card-body">
-                                    <div class="chart chart-sm">
-                                        <div class="chartjs-size-monitor">
-                                            <div class="chartjs-size-monitor-expand">
-                                                <div class=""></div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="input-group mb-3 error-placeholder">
+                                                    <label class="form-label">모델설명</label>
+                                                    <input type="text" class="form-control" name="model-explanation"
+                                                        placeholder="모델 설명을 입력해주세요" value="">
+                                                </div>
                                             </div>
-                                            <div class="chartjs-size-monitor-shrink">
-                                                <div class=""></div>
+                                            <div class="col-6">
+                                                <div class="input-group mb-3 error-placeholder">
+                                                    <label class="form-label">Reranker 모델 종류</label>
+                                                    <select class="form-control" name="model-category">
+                                                        <option value="">Reranker를 선택해 주세요.</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                    </select>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <canvas id="chartjs-doughnut" width="621" height="200"
-                                            style="display: block; width: 621px; height: 200px;"
-                                            class="chartjs-render-monitor"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-lg-6">
-                            <div class="card">
-                                <div class="card-header align-items-center d-flex justify-content-between">
-                                    <h5 class="card-title">주요 키워드 통계</h5>
-                                    <a href="#" class="btn btn-outline-secondary">상세보기 +</a>
-                                </div>
-                                <div class="card-body">
-                                    <div class="chart chart-sm">
-                                        <div class="chartjs-size-monitor">
-                                            <div class="chartjs-size-monitor-expand">
-                                                <div class=""></div>
+                                            <div class="col-6">
+                                                <div class="input-group mb-3 error-placeholder">
+                                                    <label class="form-label">엔진</label>
+                                                    <select class="form-control" name="model-engine">
+                                                        <option value="">엔진을 선택해 주세요.</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                    </select>
+                                                </div>
                                             </div>
-                                            <div class="chartjs-size-monitor-shrink">
-                                                <div class=""></div>
-                                            </div>
-                                        </div>
-                                        <canvas id="chartjs-pie" width="621" height="200"
-                                            style="display: block; width: 621px; height: 200px;"
-                                            class="chartjs-render-monitor"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-lg-6">
-                            <div class="card">
-                                <div class="card-header align-items-center d-flex justify-content-between">
-                                    <h5 class="card-title">좋아요 싫어요 현황</h5>
-                                    <a href="#" class="btn btn-outline-secondary">상세보기 +</a>
-                                </div>
-                                <div class="card-body">
-                                    <div class="chart">
-                                        <div class="chartjs-size-monitor">
-                                            <div class="chartjs-size-monitor-expand">
-                                                <div class=""></div>
-                                            </div>
-                                            <div class="chartjs-size-monitor-shrink">
-                                                <div class=""></div>
+                                            <div class="col-6">
+                                                <div class="input-group mb-3 error-placeholder">
+                                                    <label class="form-label">임베딩 모델 종류</label>
+                                                    <select class="form-control" name="model-embedding">
+                                                        <option value="">임베딩 모델을 선택해 주세요.</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
-                                        <canvas id="chartjs-radar" width="621" height="300"
-                                            style="display: block; width: 621px; height: 300px;"
-                                            class="chartjs-render-monitor"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-lg-6">
-                            <div class="card">
-                                <div class="card-header align-items-center d-flex justify-content-between">
-                                    <h5 class="card-title">대화 모델 응답 시간</h5>
-                                    <a href="#" class="btn btn-outline-secondary">상세보기 +</a>
-                                </div>
-                                <div class="card-body">
-                                    <div class="chart">
-                                        <div class="chartjs-size-monitor">
-                                            <div class="chartjs-size-monitor-expand">
-                                                <div class=""></div>
-                                            </div>
-                                            <div class="chartjs-size-monitor-shrink">
-                                                <div class=""></div>
-                                            </div>
+                                        <div class="input-group mb-3 error-placeholder">
+                                            <label class="form-label">배포 상태</label>
+                                            <label class="form-check me-4">
+                                                <input name="engine-situation" type="radio" class="form-check-input">
+                                                <span class="form-check-label">On</span>
+                                            </label>
+                                            <label class="form-check">
+                                                <input name="engine-situation" type="radio" class="form-check-input">
+                                                <span class="form-check-label">Off</span>
+                                            </label>
                                         </div>
-                                        <canvas id="chartjs-polar-area" width="621" height="300"
-                                            style="display: block; width: 621px; height: 300px;"
-                                            class="chartjs-render-monitor"></canvas>
-                                    </div>
+                                        <div class="card-footer">
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                data-bs-target="#modelModal04">등록</button>
+                                            <button type="button" class="btn btn-secondary">취소</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -453,249 +392,27 @@
         </div>
     </div>
 
-    <script src="../../assets/docs/js/app.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Line chart
-            new Chart(document.getElementById("chartjs-line"), {
-                type: "line",
-                data: {
-                    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-                    datasets: [{
-                        label: "Sales ($)",
-                        fill: true,
-                        backgroundColor: "transparent",
-                        borderColor: window.cssVariables.primary,
-                        data: [2115, 1562, 1584, 1892, 1487, 2223, 2966, 2448, 2905, 3838, 2917, 3327]
-                    }, {
-                        label: "Orders",
-                        fill: true,
-                        backgroundColor: "transparent",
-                        borderColor: window.cssVariables.primarySubtle,
-                        borderDash: [4, 4],
-                        data: [958, 724, 629, 883, 915, 1214, 1476, 1212, 1554, 2128, 1466, 1827]
-                    }]
-                },
-                options: {
-                    maintainAspectRatio: false,
-                    legend: {
-                        display: false
-                    },
-                    tooltips: {
-                        intersect: false
-                    },
-                    hover: {
-                        intersect: true
-                    },
-                    plugins: {
-                        filler: {
-                            propagate: false
-                        }
-                    },
-                    scales: {
-                        xAxes: [{
-                            reverse: true,
-                            gridLines: {
-                                color: "rgba(0,0,0,0.05)"
-                            }
-                        }],
-                        yAxes: [{
-                            ticks: {
-                                stepSize: 500
-                            },
-                            display: true,
-                            borderDash: [5, 5],
-                            gridLines: {
-                                color: "rgba(0,0,0,0)",
-                                fontColor: "#fff"
-                            }
-                        }]
-                    }
-                }
-            });
-        });
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Bar chart
-            new Chart(document.getElementById("chartjs-bar"), {
-                type: "bar",
-                data: {
-                    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-                    datasets: [{
-                        label: "Last year",
-                        backgroundColor: window.cssVariables.primary,
-                        borderColor: window.cssVariables.primary,
-                        hoverBackgroundColor: window.cssVariables.primary,
-                        hoverBorderColor: window.cssVariables.primary,
-                        data: [54, 67, 41, 55, 62, 45, 55, 73, 60, 76, 48, 79],
-                        barPercentage: .75,
-                        categoryPercentage: .5
-                    }, {
-                        label: "This year",
-                        backgroundColor: "#E8EAED",
-                        borderColor: "#E8EAED",
-                        hoverBackgroundColor: "#E8EAED",
-                        hoverBorderColor: "#E8EAED",
-                        data: [69, 66, 24, 48, 52, 51, 44, 53, 62, 79, 51, 68],
-                        barPercentage: .75,
-                        categoryPercentage: .5
-                    }]
-                },
-                options: {
-                    maintainAspectRatio: false,
-                    legend: {
-                        display: false
-                    },
-                    scales: {
-                        yAxes: [{
-                            gridLines: {
-                                display: false
-                            },
-                            stacked: false,
-                            ticks: {
-                                stepSize: 20
-                            }
-                        }],
-                        xAxes: [{
-                            stacked: false,
-                            gridLines: {
-                                color: "transparent"
-                            }
-                        }]
-                    }
-                }
-            });
-        });
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Doughnut chart
-            new Chart(document.getElementById("chartjs-doughnut"), {
-                type: "doughnut",
-                data: {
-                    labels: ["Social", "Search Engines", "Direct", "Other"],
-                    datasets: [{
-                        data: [260, 125, 54, 146],
-                        backgroundColor: [
-                            window.cssVariables.primary,
-                            window.cssVariables.success,
-                            window.cssVariables.warning,
-                            "#E8EAED"
-                        ],
-                        borderColor: "transparent"
-                    }]
-                },
-                options: {
-                    maintainAspectRatio: false,
-                    cutoutPercentage: 65,
-                    legend: {
-                        display: false
-                    }
-                }
-            });
-        });
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Pie chart
-            new Chart(document.getElementById("chartjs-pie"), {
-                type: "pie",
-                data: {
-                    labels: ["Social", "Search Engines", "Direct", "Other"],
-                    datasets: [{
-                        data: [260, 125, 54, 146],
-                        backgroundColor: [
-                            window.cssVariables.primary,
-                            window.cssVariables.warning,
-                            window.cssVariables.danger,
-                            "#E8EAED"
-                        ],
-                        borderColor: "transparent"
-                    }]
-                },
-                options: {
-                    maintainAspectRatio: false,
-                    legend: {
-                        display: false
-                    }
-                }
-            });
-        });
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Radar chart
-            new Chart(document.getElementById("chartjs-radar"), {
-                type: "radar",
-                data: {
-                    labels: ["Speed", "Reliability", "Comfort", "Safety", "Efficiency"],
-                    datasets: [{
-                        label: "Model X",
-                        backgroundColor: "rgba(0, 123, 255, 0.2)",
-                        borderColor: window.cssVariables.primary,
-                        pointBackgroundColor: window.cssVariables.primary,
-                        pointBorderColor: "#fff",
-                        pointHoverBackgroundColor: "#fff",
-                        pointHoverBorderColor: window.cssVariables.primary,
-                        data: [70, 53, 82, 60, 33]
-                    }, {
-                        label: "Model S",
-                        backgroundColor: "rgba(220, 53, 69, 0.2)",
-                        borderColor: window.cssVariables.danger,
-                        pointBackgroundColor: window.cssVariables.danger,
-                        pointBorderColor: "#fff",
-                        pointHoverBackgroundColor: "#fff",
-                        pointHoverBorderColor: window.cssVariables.danger,
-                        data: [35, 38, 65, 85, 84]
-                    }]
-                },
-                options: {
-                    maintainAspectRatio: false,
-                    scale: {
-                        gridLines: {
-                            color: window.cssVariables.quaternaryColor
-                        },
-                        ticks: {
-                            backdropColor: window.cssVariables.secondaryBg,
-                            fontColor: window.cssVariables.bodyColor
-                        },
-                        angleLines: {
-                            color: window.cssVariables.quaternaryColor
-                        },
-                        pointLabels: {
-                            fontColor: window.cssVariables.bodyColor
-                        }
-                    }
-                }
-            });
-        });
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Polar Area chart
-            new Chart(document.getElementById("chartjs-polar-area"), {
-                type: "polarArea",
-                data: {
-                    labels: ["Speed", "Reliability", "Comfort", "Safety", "Efficiency"],
-                    datasets: [{
-                        label: "Model S",
-                        data: [35, 38, 65, 70, 24],
-                        backgroundColor: [
-                            window.cssVariables.primary,
-                            window.cssVariables.success,
-                            window.cssVariables.danger,
-                            window.cssVariables.warning,
-                            window.cssVariables.info
-                        ]
-                    }]
-                },
-                options: {
-                    maintainAspectRatio: false
-                }
-            });
-        });
-    </script>
+    <div class="modal fade" id="modelModal04" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">비어있는 모델 값 확인</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body m-3">
+                    <p class="mb-0">비어있는 모델 정보 값이 있습니다.<br>
+                        모든 정보를 입력해 주세요.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="js/app.js"></script>
 </body>
 
 </html>
