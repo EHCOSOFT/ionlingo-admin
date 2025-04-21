@@ -1,0 +1,261 @@
+@charset "utf-8";
+@import url(app.css);
+
+@font-face {
+    font-family: "PretendardGOV";
+    font-weight: 900;
+    font-display: swap;
+    src: local("PretendardGOV Black"),
+        url("../fonts/PretendardGOV-Black.woff2") format("woff2"),
+        url("../fonts/PretendardGOV-Black.woff") format("woff");
+}
+
+@font-face {
+    font-family: "PretendardGOV";
+    font-weight: 800;
+    font-display: swap;
+    src: local("PretendardGOV ExtraBold"),
+        url("../fonts/PretendardGOV-ExtraBold.woff2") format("woff2"),
+        url("../fonts/PretendardGOV-ExtraBold.woff") format("woff");
+}
+
+@font-face {
+    font-family: "PretendardGOV";
+    font-weight: 700;
+    font-display: swap;
+    src: local("PretendardGOV Bold"),
+        url("../fonts/PretendardGOV-Bold.woff2") format("woff2"),
+        url("../fonts/PretendardGOV-Bold.woff") format("woff");
+}
+
+@font-face {
+    font-family: "PretendardGOV";
+    font-weight: 600;
+    font-display: swap;
+    src: local("PretendardGOV SemiBold"),
+        url("../fonts/PretendardGOV-SemiBold.woff2") format("woff2"),
+        url("../fonts/PretendardGOV-SemiBold.woff") format("woff");
+}
+
+@font-face {
+    font-family: "PretendardGOV";
+    font-weight: 500;
+    font-display: swap;
+    src: local("PretendardGOV Medium"),
+        url("../fonts/PretendardGOV-Medium.woff2") format("woff2"),
+        url("../fonts/PretendardGOV-Medium.woff") format("woff");
+}
+
+@font-face {
+    font-family: "PretendardGOV";
+    font-weight: 400;
+    font-display: swap;
+    src: local("PretendardGOV Regular"),
+        url("../fonts/PretendardGOV-Regular.woff2") format("woff2"),
+        url("../fonts/PretendardGOV-Regular.woff") format("woff");
+}
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --color-0283FD-primary: #0283FD;
+    --color-2897FF-primary-text: #2897FF;
+    --color-C9E6FF-primary-20: #C9E6FF;
+    --color-ECF6FF-primary-10: #ECF6FF;
+    --color-F7FBFF-primary-5: #F7FBFF;
+    --color-ffffff-white: #ffffff;
+    --color-22272B-gray-900: #22272B;
+    --color-687481-gray-800: #687481;
+    --color-8995A1-gray-700: #8995A1;
+    --color-B1BBC9-gray-600: #B1BBC9;
+    --color-D4DCE5-gray-500: #D4DCE5;
+    --color-E8ECF5-gray-400: #E8ECF5;
+    --color-F1F4F9-gray-300: #F1F4F9;
+    --color-F6F8FB-gray-200: #F6F8FB;
+    --color-f5f5f5-gray-rgb: #f5f5f5;
+    --font-sans-serif: "PretendardGOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    --gt-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    --bs-gutter-x: 24px;
+    --bs-gutter-y: 24px;
+    --letter-spacing: -0.5px;
+
+    /* 타이틀 폰트 사이즈 : 최종 버전으로 추후 변수명의 숫자 일괄 삭제 */
+    --font-title-48-fourxl: 48px;
+    --font-title-40-threexl: 40px;
+    --font-title-36-xxl: 36px;
+    --font-title-32-xlmd: 32px;
+    --font-title-28-xl: 28px;
+    --font-title-24-lg: 24px;
+    --font-title-22-md: 22px;
+    --font-title-20-sm: 20px;
+    --font-title-18-xs: 18px;
+
+    /* 폰트사이즈 : 최종 버전으로 추후 변수명의 숫자 일괄 삭제 */
+    --font-20-xl: 20px;
+    --font-18-lg: 18px;
+    --font-16-md: 16px;
+    --font-15-sm: 15px;
+    --font-14-xs: 14px;
+    --font-13-xxs: 13px;
+    --font-12-min: 12px;
+
+    /* 폰트두께 : 최종 버전으로 추후 변수명의 숫자 일괄 삭제 */
+    --font-800-extrabold: 800;
+    --font-700-bold: 700;
+    --font-600-semibold: 600;
+    --font-500-medium: 500;
+    --font-400-regular: 400;
+    --font-300-thin: 400;
+
+    /* 여백 : 최종 버전으로 추후 변수명의 숫자 일괄 삭제 */
+    --space-120-sixxl: 120px;
+    --space-80-fivexl: 80px;
+    --space-60-fourxl: 60px;
+    --space-48-threexl: 48px;
+    --space-40-xxl: 40px;
+    --space-32-xl: 32px;
+    --space-24-lg: 24px;
+    --space-20-md: 20px;
+    --space-16-sm: 16px;
+    --space-12-xs: 12px;
+    --space-8-xxs: 8px;
+    --space-4-min: 4px;
+
+    /* 모서리지름 : 최종 버전으로 추후 변수명의 숫자 일괄 삭제 */
+    --radius-full: 100px;
+    --radius-28-threexl: 28px;
+    --radius-24-xxl: 24px;
+    --radius-20-xl: 20px;
+    --radius-16-lg: 16px;
+    --radius-12-md: 12px;
+    --radius-8-sm: 8px;
+}
+
+body {
+    font-size: var(--font-14-xs);
+    font-family: var(--font-sans-serif) !important;
+    letter-spacing: var(--letter-spacing) !important;
+    margin: 0;
+    position: relative;
+}
+
+textarea {
+    resize: none;
+}
+
+.input-group {
+    align-items: center;
+}
+
+.input-group>.form-label {
+    margin: 0;
+    width: 128px;
+}
+
+.card-header+.card-body {
+    padding-top: 0;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.file-img-area {
+    display: flex;
+    gap: 16px;
+    position: relative;
+}
+
+.file-img-group .file-img {
+    display: none;
+    height: 56px;
+    max-width: 200px;
+    width: 100%;
+}
+
+.file-img-group input {
+    display: none;
+}
+
+.table tr th .form-label,
+.table tr td .form-label {
+    margin: 0;
+}
+
+.badge {
+    font-size: 13px;
+}
+
+.navbar-right {
+    align-items: center;
+    display: flex;
+    gap: 16px;
+    margin: 0 0 0 auto;
+}
+
+.navbar-right .navbar-info {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar-right .navbar-info h4 {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.navbar-right .navbar-info p {
+    font-size: 12px;
+    line-height: 16px;
+    margin: 0;
+}
+
+.sidebar-brand img {
+    height: 30px;
+}
+
+.login-left {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: center;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+.login-left h1 {
+    align-items: flex-start;
+    color: #fff;
+    font-size: 40px;
+    font-weight: 700;
+    display: flex;
+    gap: 12px;
+}
+
+.login-left h1 span {
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.login-left span {
+    display: inline-block;
+}
+
+.login-left img {
+    height: 60px;
+}
+
+.login-left h6 {
+    color: #fff;
+    font-size: 20px;
+}
+
+.auth-form img {
+    height: 40px;
+}
