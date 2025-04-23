@@ -25,43 +25,42 @@
                 <div class="container-fluid p-0">
                     <div class="row mb-2 mb-xl-3">
                         <div class="col-12 d-flex justify-content-between mb-3">
-                            <h3>지식 관리 > 지식 설정</h3>
-                            <a href="지식그룹관리_지식설정_지식등록.html" class="btn btn-primary">등록</a>
+                            <h3>시스템 관리 > 사용자 관리</h3>
+                            <a href="시스템관리_사용자관리_사용자등록.html" class="btn btn-primary">등록</a>
                         </div>
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5 class="card-title">조회</h5>
+                                    <h5 class="card-title">사용자 검색</h5>
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-3">
                                             <div class="error-placeholder">
-                                                <label class="form-label">서비스명</label>
-                                                <select class="form-select" name="service-name">
-                                                    <option value="0">전체</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                </select>
+                                                <label class="form-label">사용자명</label>
+                                                <input type="text" class="form-control" name="user-name"
+                                                    placeholder="사용자명을 입력해주세요">
                                             </div>
                                         </div>
                                         <div class="col-3">
                                             <div class="error-placeholder">
-                                                <label class="form-label">지식명</label>
-                                                <select class="form-select" name="knowledge-name">
-                                                    <option value="0">전체</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
+                                                <label class="form-label">권한</label>
+                                                <select class="form-select" name="user-author-select">
+                                                    <option value="">권한을 선택해주세요</option>
+                                                    <option value="1">지식 관리자</option>
+                                                    <option value="2">서비스 관리자</option>
+                                                    <option value="3">시스템 관리자</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-4">
-                                            <div class="error-placeholder">
-                                                <label class="form-label">검색어</label>
-                                                <input type="text" class="form-control" name="service-search-keyword"
-                                                    placeholder="검색어를 입력하세요.">
+                                            <div class="mb-xl-0">
+                                                <label class="form-label">생성 날짜</label>
+                                                <div class="align-items-center d-flex gap-1">
+                                                    <input class="form-control" type="text" name="datesingle">
+                                                    <span>~</span>
+                                                    <input class="form-control" type="text" name="datesingle">
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col d-flex align-items-end justify-content-end">
@@ -77,11 +76,8 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header d-flex align-items-center justify-content-between pb-0">
-                                    <h5 class="card-title">지식 파일 목록</h5>
-                                    <div class="ms-auto d-flex gap-1">
-                                        <button type="button"
-                                            class="btn btn-outline-danger ms-auto gap-1 d-flex align-items-center">
-                                            선택삭제</button>
+                                    <h5 class="card-title">사용자 목록</h5>
+                                    <div class="ms-auto">
                                         <button type="button"
                                             class="btn btn-outline-success ms-auto gap-1 d-flex align-items-center">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -103,13 +99,13 @@
                                                     class="table table-striped w-100 dataTable dtr-inline"
                                                     aria-describedby="datatables-reponsive_info">
                                                     <colgroup>
-                                                        <col data-dt-column="0" style="width: 5%;">
-                                                        <col data-dt-column="1" style="width: 5%;">
-                                                        <col data-dt-column="1" style="width: 15%;">
-                                                        <col data-dt-column="4" style="width: 15%;">
-                                                        <col data-dt-column="2" style="width: auto;">
-                                                        <col data-dt-column="5" style="width: 10%;">
-                                                        <col data-dt-column="5" style="width: 10%;">
+                                                        <col data-dt-column="0" style="width: 5%; min-width: 40px;">
+                                                        <col data-dt-column="1" style="width: 5%; min-width: 40px;">
+                                                        <col data-dt-column="2" style="width: 20%; min-width: 120px;">
+                                                        <col data-dt-column="4" style="width: 10%;">
+                                                        <col data-dt-column="3" style="width: auto;">
+                                                        <col data-dt-column="5" style="width: 14%;">
+                                                        <col data-dt-column="5" style="width: 14%; min-width: 160px;">
                                                     </colgroup>
                                                     <thead>
                                                         <tr role="row">
@@ -122,31 +118,28 @@
                                                                 </label>
                                                             </th>
                                                             <th data-dt-column="2" rowspan="1" colspan="1"
-                                                                class="text-center" aria-sort="ascending">No</th>
+                                                                class="text-center" aria-sort="ascending">
+                                                                <span class="dt-column-title">No</span>
+                                                            </th>
                                                             <th data-dt-column="3" rowspan="1" colspan="1"
-                                                                class="dt-orderable-asc dt-orderable-desc dt-ordering-asc text-center"
-                                                                aria-sort="ascending">
-                                                                <span class="dt-column-title">지식 명</span>
-                                                                <span class="dt-column-order"></span>
+                                                                class="text-center">
+                                                                <span class="dt-column-title">사용자명</span>
                                                             </th>
                                                             <th data-dt-column="4" rowspan="1" colspan="1"
-                                                                class="dt-orderable-asc dt-orderable-desc dt-ordering-asc text-center">
-                                                                <span class="dt-column-title">서비스 명</span>
-                                                                <span class="dt-column-order"></span>
+                                                                class="text-center">
+                                                                <span class="dt-column-title">사용자 성명</span>
                                                             </th>
                                                             <th data-dt-column="5" rowspan="1" colspan="1"
                                                                 class="text-center">
-                                                                <span class="dt-column-title">지식 설명</span>
+                                                                <span class="dt-column-title">사용자 설명</span>
                                                             </th>
                                                             <th data-dt-column="6" rowspan="1" colspan="1"
-                                                                class="dt-orderable-asc dt-orderable-desc dt-ordering-asc text-center">
-                                                                <span class="dt-column-title">등록일</span>
-                                                                <span class="dt-column-order"></span>
+                                                                class="text-center">
+                                                                <span class="dt-column-title">권한</span>
                                                             </th>
                                                             <th data-dt-column="7" rowspan="1" colspan="1"
-                                                                class="dt-orderable-asc dt-orderable-desc dt-ordering-asc text-center">
-                                                                <span class="dt-column-title">수정일</span>
-                                                                <span class="dt-column-order"></span>
+                                                                class="text-center">
+                                                                <span class="dt-column-title">생성일</span>
                                                             </th>
                                                         </tr>
                                                     </thead>
@@ -160,13 +153,41 @@
                                                                 </label>
                                                             </td>
                                                             <td>1</td>
-                                                            <td tabindex="0">
-                                                                <a href="#">지식 명칭(텍스트 전체노출)</a>
+                                                            <td tabindex="0"><a href="시스템관리_사용자관리_사용자수정.html">test@gmail.com</a></td>
+                                                            <td>홍길동</td>
+                                                            <td>사용자 설명</td>
+                                                            <td>시스템 관리자</td>
+                                                            <td>YYYY-MM-DD 00:00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <!-- ✅ 개별 체크박스: 공통 클래스 .check-row -->
+                                                                <label class="form-label">
+                                                                    <input type="checkbox"
+                                                                        class="form-check-input check-row">
+                                                                </label>
                                                             </td>
-                                                            <td>서비스 명칭(텍스트 전체노출)</td>
-                                                            <td>지식 설명(2줄 초과하면 말줄임표 처리)</td>
-                                                            <td>YYYY-MM-DD</td>
-                                                            <td>YYYY-MM-DD</td>
+                                                            <td>1</td>
+                                                            <td tabindex="0"><a href="시스템관리_사용자관리_사용자수정.html">test@gmail.com</a></td>
+                                                            <td>홍길동</td>
+                                                            <td>사용자 설명</td>
+                                                            <td>시스템 관리자</td>
+                                                            <td>YYYY-MM-DD 00:00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <!-- ✅ 개별 체크박스: 공통 클래스 .check-row -->
+                                                                <label class="form-label">
+                                                                    <input type="checkbox"
+                                                                        class="form-check-input check-row">
+                                                                </label>
+                                                            </td>
+                                                            <td>1</td>
+                                                            <td tabindex="0"><a href="시스템관리_사용자관리_사용자수정.html">test@gmail.com</a></td>
+                                                            <td>홍길동</td>
+                                                            <td>사용자 설명</td>
+                                                            <td>시스템 관리자</td>
+                                                            <td>YYYY-MM-DD 00:00</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -226,11 +247,10 @@
             </main>
 
             <!-- Start : Footer(common.js) -->
-            <footer class=" footer" id="footer"></footer>
+            <footer class="footer" id="footer"></footer>
             <!-- End : Footer -->
         </div>
     </div>
-
 
     <script src="js/app.js"></script>
     <script src="js/common.js"></script>

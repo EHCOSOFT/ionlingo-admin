@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light" data-layout="fluid" data-sidebar-theme="light" data-sidebar-position="left"
+    data-sidebar-behavior="sticky">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Start : Sidebar(common.js) -->
+        <nav id="sidebar" class="sidebar"></nav>
+        <!-- End : Sidebar -->
+
+        <div class="main">
+            <!-- Start : Navbar(common.js) -->
+            <nav class="navbar navbar-expand navbar-bg" id="navbar"></nav>
+            <!-- End : Navbar -->
+
+            <main class="content">
+                <div class="container-fluid p-0">
+
+                    <div class="row mb-2 mb-xl-3">
+                        <div class="col-12 d-flex justify-content-between mb-3">
+                            <h3>시스템 관리 > 메뉴관리 > 권한 등록</h3>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title">권한 등록</h5>
+                                </div>
+                                <div class="card-body">
+                                    <form id="menuAuthorAddForm">
+                                        <div class="row">
+                                            <div class="col-8">
+                                                <div class="input-group mb-3">
+                                                    <label class="form-label">권한명</label>
+                                                    <input type="text" class="form-control" name="author-name"
+                                                        placeholder="권한명을 입력해주세요." value="">
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <label class="form-label">서비스명</label>
+                                                    <select class="form-select" name="author-service-select">
+                                                        <option value="">서비스명을 선택해주세요.</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                    </select>
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <label class="form-label">지식명</label>
+                                                    <select class="form-select" name="knowledge-name-select">
+                                                        <option value="">지식명을 선택해주세요.</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                    </select>
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <label class="form-label">메뉴 권한</label>
+                                                    <label class="form-check me-4">
+                                                        <input name="menu-author" type="radio" class="form-check-input">
+                                                        <span class="form-check-label">전체 활성화</span>
+                                                    </label>
+                                                    <label class="form-check me-4">
+                                                        <input name="menu-author" type="radio" class="form-check-input">
+                                                        <span class="form-check-label">전체 비활성화</span>
+                                                    </label>
+                                                    <label class="form-check">
+                                                        <input name="menu-author" type="radio" class="form-check-input">
+                                                        <span class="form-check-label">메뉴별 활성화</span>
+                                                    </label>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <div class="input-group mb-3 menu-visibility-group"
+                                                            data-group="dashboards">
+                                                            <label class="form-label">Dashboards</label>
+                                                            <label class="form-check me-4">
+                                                                <input name="dashboards-visibility" type="radio"
+                                                                    class="form-check-input" value="On">
+                                                                <span class="form-check-label">On</span>
+                                                            </label>
+                                                            <label class="form-check">
+                                                                <input name="dashboards-visibility" type="radio"
+                                                                    class="form-check-input" value="Off">
+                                                                <span class="form-check-label">Off</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="input-group mb-3 menu-visibility-group"
+                                                            data-group="engine">
+                                                            <label class="form-label">엔진관리</label>
+                                                            <label class="form-check me-4">
+                                                                <input name="engine-visibility" type="radio"
+                                                                    class="form-check-input" value="On">
+                                                                <span class="form-check-label">On</span>
+                                                            </label>
+                                                            <label class="form-check">
+                                                                <input name="engine-visibility" type="radio"
+                                                                    class="form-check-input" value="Off">
+                                                                <span class="form-check-label">Off</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="input-group mb-3 menu-visibility-group"
+                                                            data-group="model">
+                                                            <label class="form-label">모델관리</label>
+                                                            <label class="form-check me-4">
+                                                                <input name="model-visibility" type="radio"
+                                                                    class="form-check-input" value="On">
+                                                                <span class="form-check-label">On</span>
+                                                            </label>
+                                                            <label class="form-check">
+                                                                <input name="model-visibility" type="radio"
+                                                                    class="form-check-input" value="Off">
+                                                                <span class="form-check-label">Off</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="input-group mb-3 menu-visibility-group"
+                                                            data-group="service">
+                                                            <label class="form-label">서비스 관리</label>
+                                                            <label class="form-check me-4">
+                                                                <input name="service-visibility" type="radio"
+                                                                    class="form-check-input" value="On">
+                                                                <span class="form-check-label">On</span>
+                                                            </label>
+                                                            <label class="form-check">
+                                                                <input name="service-visibility" type="radio"
+                                                                    class="form-check-input" value="Off">
+                                                                <span class="form-check-label">Off</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="input-group mb-3 menu-visibility-group"
+                                                            data-group="knowledge-group">
+                                                            <label class="form-label">지식 그룹 관리</label>
+                                                            <label class="form-check me-4">
+                                                                <input name="knowledge-group-visibility" type="radio"
+                                                                    class="form-check-input" value="On">
+                                                                <span class="form-check-label">On</span>
+                                                            </label>
+                                                            <label class="form-check">
+                                                                <input name="knowledge-group-visibility" type="radio"
+                                                                    class="form-check-input" value="Off">
+                                                                <span class="form-check-label">Off</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="input-group mb-3 menu-visibility-group"
+                                                            data-group="knowledge-date">
+                                                            <label class="form-label">지식데이터 관리</label>
+                                                            <label class="form-check me-4">
+                                                                <input name="knowledge-date-visibility" type="radio"
+                                                                    class="form-check-input" value="On">
+                                                                <span class="form-check-label">On</span>
+                                                            </label>
+                                                            <label class="form-check">
+                                                                <input name="knowledge-date-visibility" type="radio"
+                                                                    class="form-check-input" value="Off">
+                                                                <span class="form-check-label">Off</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="input-group mb-3 menu-visibility-group"
+                                                            data-group="dictionary">
+                                                            <label class="form-label">사전 관리</label>
+                                                            <label class="form-check me-4">
+                                                                <input name="dictionary-visibility" type="radio"
+                                                                    class="form-check-input" value="On">
+                                                                <span class="form-check-label">On</span>
+                                                            </label>
+                                                            <label class="form-check">
+                                                                <input name="dictionary-visibility" type="radio"
+                                                                    class="form-check-input" value="Off">
+                                                                <span class="form-check-label">Off</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="input-group mb-3 menu-visibility-group"
+                                                            data-group="chat">
+                                                            <label class="form-label">대화 관리</label>
+                                                            <label class="form-check me-4">
+                                                                <input name="chat-visibility" type="radio"
+                                                                    class="form-check-input" value="On">
+                                                                <span class="form-check-label">On</span>
+                                                            </label>
+                                                            <label class="form-check">
+                                                                <input name="chat-visibility" type="radio"
+                                                                    class="form-check-input" value="Off">
+                                                                <span class="form-check-label">Off</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="input-group mb-3 menu-visibility-group"
+                                                            data-group="evaluation">
+                                                            <label class="form-label">평가 관리</label>
+                                                            <label class="form-check me-4">
+                                                                <input name="evaluation-visibility" type="radio"
+                                                                    class="form-check-input" value="On">
+                                                                <span class="form-check-label">On</span>
+                                                            </label>
+                                                            <label class="form-check">
+                                                                <input name="evaluation-visibility" type="radio"
+                                                                    class="form-check-input" value="Off">
+                                                                <span class="form-check-label">Off</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="input-group mb-3 menu-visibility-group"
+                                                            data-group="log-analysis">
+                                                            <label class="form-label">로그 분석</label>
+                                                            <label class="form-check me-4">
+                                                                <input name="log-analysis-visibility" type="radio"
+                                                                    class="form-check-input" value="On">
+                                                                <span class="form-check-label">On</span>
+                                                            </label>
+                                                            <label class="form-check">
+                                                                <input name="log-analysis-visibility" type="radio"
+                                                                    class="form-check-input" value="Off">
+                                                                <span class="form-check-label">Off</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="input-group mb-3 menu-visibility-group"
+                                                            data-group="usage-stats">
+                                                            <label class="form-label">이용 통계</label>
+                                                            <label class="form-check me-4">
+                                                                <input name="usage-stats-visibility" type="radio"
+                                                                    class="form-check-input" value="On">
+                                                                <span class="form-check-label">On</span>
+                                                            </label>
+                                                            <label class="form-check">
+                                                                <input name="usage-stats-visibility" type="radio"
+                                                                    class="form-check-input" value="Off">
+                                                                <span class="form-check-label">Off</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="input-group mb-3 menu-visibility-group"
+                                                            data-group="system">
+                                                            <label class="form-label">시스템 관리</label>
+                                                            <label class="form-check me-4">
+                                                                <input name="system-visibility" type="radio"
+                                                                    class="form-check-input" value="On">
+                                                                <span class="form-check-label">On</span>
+                                                            </label>
+                                                            <label class="form-check">
+                                                                <input name="system-visibility" type="radio"
+                                                                    class="form-check-input" value="Off">
+                                                                <span class="form-check-label">Off</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div class="card-footer">
+                                        <!-- ✅ 확인만 -->
+                                        <button type="submit" class="btn btn-primary modal-trigger-btn"
+                                            data-modal-title="유효하지 않은 항목 확인"
+                                            data-modal-body="유효하지 않은 항목이 있습니다.&#10;비어 있거나 잘못 입력된 항목들을 확인 후 재시도 해주세요."
+                                            data-modal-buttons='[{"text":"확인","class":"btn-primary", "callback":"", "dismiss":true}]'>등록</button>
+                                        <!-- ✅ 확인 + 취소 -->
+                                        <button type="button" class="btn btn-secondary modal-trigger-btn"
+                                            data-modal-title="페이지 이탈 여부 확인"
+                                            data-modal-body="입력한 정보를 저장하지 않고, 페이지 이탈 시 입력된 정보는 저장되지 않습니다.&#10;페이지를 이동하시겠습니까?"
+                                            data-modal-buttons='
+                                                [{"text":"확인","class":"btn-primary","callback":""},
+                                                {"text":"취소","class":"btn-secondary","dismiss":true}]'>취소</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Start : Footer(common.js) -->
+            <footer class=" footer" id="footer"></footer>
+            <!-- End : Footer -->
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/common.js"></script>
+</body>
+
+</html>

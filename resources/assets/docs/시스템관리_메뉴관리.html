@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light" data-layout="fluid" data-sidebar-theme="light" data-sidebar-position="left"
+    data-sidebar-behavior="sticky">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Start : Sidebar(common.js) -->
+        <nav id="sidebar" class="sidebar"></nav>
+        <!-- End : Sidebar -->
+
+        <div class="main">
+            <!-- Start : Navbar(common.js) -->
+            <nav class="navbar navbar-expand navbar-bg" id="navbar"></nav>
+            <!-- End : Navbar -->
+
+            <main class="content">
+                <div class="container-fluid p-0">
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-between mb-3">
+                            <h3>시스템 관리 > 메뉴 관리</h3>
+                        </div>
+                        <!-- col-3: 권한 선택 -->
+                        <div class="col-3">
+
+                            <div class="card">
+                                <div class="card-header align-items-center d-flex justify-content-between">
+                                    <h5 class="card-title">관리 권한</h5>
+                                    <a href="시스템관리_메뉴관리_권한등록.html" class="btn btn-sm btn-outline-secondary">권한 추가</a>
+                                </div>
+                                <div class="list-group authority-tabs">
+                                    <a class="list-group-item" href="#" data-role="service">서비스 관리자</a>
+                                    <a class="list-group-item" href="#" data-role="system">시스템 관리자</a>
+                                    <a class="list-group-item" href="#" data-role="tester">테스터</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- col-3: 중간 메뉴 리스트 -->
+                        <div class="col-3">
+                            <div class="card">
+                                <div class="card-header align-items-center d-flex justify-content-between">
+                                    <h5 class="card-title">메뉴</h5>
+                                    <a href="시스템관리_메뉴관리_메뉴추가.html" class="btn btn-sm btn-outline-secondary">메뉴 추가</a>
+                                </div>
+                                <div class="menu-list-wrap">
+                                    <!-- 여기에 동적으로 관리자가 선택한 메뉴 HTML을 JS로 삽입 -->
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- col-6: 상세 폼 -->
+                        <div class="col-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title">메뉴별 권한 관리</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="menu-detail-wrap">
+                                        <!-- 여기에 상세 폼 HTML을 JS로 삽입 -->
+                                        <!-- 폼 형식은 동일하고 value값만 다름 -->
+                                    </div>
+                                    <div class="card-footer">
+                                        <!-- ✅ 확인 + 취소 -->
+                                        <button type="submit" class="btn btn-primary modal-trigger-btn"
+                                            data-modal-title="등록된 메뉴 수정 여부 확인" data-modal-body="등록된 메뉴 정보를 수정 하시겠습니까?"
+                                            data-modal-buttons='
+                                                [{"text":"확인","class":"btn-primary", "callback":""},
+                                                {"text":"취소","class":"btn-secondary", "dismiss":true}]'>수정</button>
+                                        <!-- ✅ 확인 + 취소 -->
+                                        <button type="button" class="btn btn-danger modal-trigger-btn"
+                                            data-modal-title="등록된 메뉴 삭제 여부 확인" data-modal-body="해당 메뉴를 삭제 하시겠습니까?"
+                                            data-modal-buttons='
+                                                [{"text":"확인","class":"btn-primary","callback":""},
+                                                {"text":"취소","class":"btn-secondary","dismiss":true}]'>삭제</button>
+                                        <!-- ✅ 확인 + 취소 -->
+                                        <button type="button" class="btn btn-secondary modal-trigger-btn"
+                                            data-modal-title="페이지 이탈 여부 확인"
+                                            data-modal-body="입력한 정보를 저장하지 않고, 페이지 이탈 시 입력된 정보는 저장되지 않습니다.&#10;페이지를 이동하시겠습니까?"
+                                            data-modal-buttons='
+                                                    [{"text":"확인","class":"btn-primary","callback":""},
+                                                    {"text":"취소","class":"btn-secondary","dismiss":true}]'>취소</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Start : Footer(common.js) -->
+            <footer class="footer" id="footer"></footer>
+            <!-- End : Footer -->
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/common.js"></script>
+</body>
+
+</html>

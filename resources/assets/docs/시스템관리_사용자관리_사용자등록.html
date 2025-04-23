@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light" data-layout="fluid" data-sidebar-theme="light" data-sidebar-position="left"
+    data-sidebar-behavior="sticky">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Start : Sidebar(common.js) -->
+        <nav id="sidebar" class="sidebar"></nav>
+        <!-- End : Sidebar -->
+
+        <div class="main">
+            <!-- Start : Navbar(common.js) -->
+            <nav class="navbar navbar-expand navbar-bg" id="navbar"></nav>
+            <!-- End : Navbar -->
+
+            <main class="content">
+                <div class="container-fluid p-0">
+
+                    <div class="row mb-2 mb-xl-3">
+                        <div class="col-12 d-flex justify-content-between mb-3">
+                            <h3>시스템 관리 > 사용자 관리 > 사용자 등록</h3>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title">사용자 등록</h5>
+                                </div>
+                                <div class="card-body">
+                                    <form id="userRegForm">
+                                        <div class="row">
+                                            <div class="col-8">
+                                                <div class="input-group mb-3">
+                                                    <label class="form-label">아이디</label>
+                                                    <input type="text" class="form-control" name="user-id"
+                                                        placeholder="아이디를 입력해주세요." value="">
+                                                    <button type="button" class="btn btn-primary btn-check-duplicate">중복검사</button>
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <label class="form-label">비밀번호</label>
+                                                    <input type="password" class="form-control" name="user-pw"
+                                                        placeholder="비밀번호를 입력해주세요." value="">
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <label class="form-label">사용자 명</label>
+                                                    <input type="text" class="form-control" name="user-name"
+                                                        placeholder="사용자 명을 입력해주세요." value="">
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <label class="form-label">부서명</label>
+                                                    <input type="text" class="form-control" name="user-dep-name"
+                                                        placeholder="부서명을 입력해주세요." value="">
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <label class="form-label">연락처</label>
+                                                    <input type="text" class="form-control" name="user-phone-number"
+                                                        placeholder="연락처를 입력해주세요." value="">
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <label class="form-label">권한</label>
+                                                    <select class="form-select" name="user-author-select">
+                                                        <option value="">권한을 선택해주세요.</option>
+                                                        <option value="1">지식 관리자</option>
+                                                        <option value="2">서비스 관리자</option>
+                                                        <option value="3">시스템 관리자</option>
+                                                    </select>
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <label class="form-label">설명</label>
+                                                    <textarea class="form-control" placeholder="설명을 입력하세요." rows="4" name="user-desc"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div class="card-footer">
+                                        <!-- ✅ 확인만 -->
+                                        <button type="submit" class="btn btn-primary modal-trigger-btn"
+                                            data-modal-title="유효하지 않은 항목 확인"
+                                            data-modal-body="유효하지 않은 항목이 있습니다.&#10;비어 있거나 잘못 입력된 항목들을 확인 후 재시도 해주세요."
+                                            data-modal-buttons='[{"text":"확인","class":"btn-primary", "callback":"", "dismiss":true}]'>저장</button>
+                                        <!-- ✅ 확인 + 취소 -->
+                                        <button type="button" class="btn btn-secondary modal-trigger-btn"
+                                            data-modal-title="페이지 이탈 여부 확인"
+                                            data-modal-body="입력한 정보를 저장하지 않고, 페이지 이탈 시 입력된 정보는 저장되지 않습니다.&#10;페이지를 이동하시겠습니까?"
+                                            data-modal-buttons='
+                                                [{"text":"확인","class":"btn-primary","callback":""},
+                                                {"text":"취소","class":"btn-secondary","dismiss":true}]'>취소</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Start : Footer(common.js) -->
+            <footer class=" footer" id="footer"></footer>
+            <!-- End : Footer -->
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/common.js"></script>
+</body>
+
+</html>

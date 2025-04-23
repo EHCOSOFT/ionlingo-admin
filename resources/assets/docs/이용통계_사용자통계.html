@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light" data-layout="fluid" data-sidebar-theme="light" data-sidebar-position="left"
+    data-sidebar-behavior="sticky">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Start : Sidebar(common.js) -->
+        <nav id="sidebar" class="sidebar"></nav>
+        <!-- End : Sidebar -->
+
+        <div class="main">
+            <!-- Start : Navbar(common.js) -->
+            <nav class="navbar navbar-expand navbar-bg" id="navbar"></nav>
+            <!-- End : Navbar -->
+
+            <main class="content">
+                <div class="container-fluid p-0">
+                    <div class="row mb-2 mb-xl-3">
+                        <div class="col-12 d-flex justify-content-between mb-3">
+                            <h3>이용통계 > 사용자 통계</h3>
+                            <div class="ms-auto d-flex gap-2">
+                                <div class="align-items-center d-flex gap-1">
+                                    <input class="form-control" type="text" name="datesingle">
+                                    <span>~</span>
+                                    <input class="form-control" type="text" name="datesingle">
+                                </div>
+                                <div class="d-flex gap-1">
+                                    <button type="button" class="btn btn-primary">조회</button>
+                                    <button type="button"
+                                        class="btn btn-success ms-auto gap-1 d-flex align-items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" data-lucide="download"
+                                            class="lucide lucide-download">
+                                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                            <polyline points="7 10 12 15 17 10"></polyline>
+                                            <line x1="12" x2="12" y1="15" y2="3"></line>
+                                        </svg>전체 다운로드</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header align-items-center d-flex">
+                                    <h5 class="card-title">서비스 접속 이용자 및 대화 통계</h5>
+                                    <div class="ms-auto d-flex gap-2">
+                                        <div class="align-items-center d-flex gap-1">
+                                            <input class="form-control" type="text" name="datesingle">
+                                            <span>~</span>
+                                            <input class="form-control" type="text" name="datesingle">
+                                        </div>
+                                        <div class="d-flex gap-1">
+                                            <button type="button" class="btn btn-primary">조회</button>
+
+                                            <button type="button"
+                                                class="btn btn-outline-success ms-auto gap-1 d-flex align-items-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    data-lucide="download" class="lucide lucide-download">
+                                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                                    <line x1="12" x2="12" y1="15" y2="3"></line>
+                                                </svg>엑셀 다운로드</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="chart">
+                                                <div class="chartjs-size-monitor">
+                                                    <div class="chartjs-size-monitor-expand">
+                                                        <div class=""></div>
+                                                    </div>
+                                                    <div class="chartjs-size-monitor-shrink">
+                                                        <div class=""></div>
+                                                    </div>
+                                                </div>
+                                                <canvas id="servicChatStats" width="621" height="300"
+                                                    style="display: block; width: 621px; height: 300px;"
+                                                    class="chartjs-render-monitor"></canvas>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div id="datatables-reponsive_wrapper"
+                                                class="dt-container dt-bootstrap5 dt-empty-footer">
+                                                <div class="row mt-2 justify-content-md-center">
+                                                    <div class="col-12 ">
+                                                        <table id="datatables-reponsive"
+                                                            class="table table-striped w-100 dataTable dtr-inline"
+                                                            aria-describedby="datatables-reponsive_info">
+                                                            <colgroup>
+                                                                <col data-dt-column="1"
+                                                                    style="width: 5%; min-width: 40px;">
+                                                                <col data-dt-column="2" style="width: auto;">
+                                                                <col data-dt-column="4" style="width: auto;">
+                                                                <col data-dt-column="3" style="width: auto;">
+                                                                <col data-dt-column="5" style="width: auto;">
+                                                            </colgroup>
+                                                            <thead>
+                                                                <tr role="row">
+                                                                    <th data-dt-column="1" rowspan="1" colspan="1"
+                                                                        class="text-center" aria-sort="ascending">
+                                                                        <span class="dt-column-title">No</span>
+                                                                    </th>
+                                                                    <th data-dt-column="2" rowspan="1" colspan="1"
+                                                                        class="text-center">
+                                                                        <span class="dt-column-title">서비스명</span>
+                                                                    </th>
+                                                                    <th data-dt-column="3" rowspan="1" colspan="1"
+                                                                        class="text-center">
+                                                                        <span class="dt-column-title">유저 ID</span>
+                                                                    </th>
+                                                                    <th data-dt-column="4" rowspan="1" colspan="1"
+                                                                        class="text-center">
+                                                                        <span class="dt-column-title">소속 부서</span>
+                                                                    </th>
+                                                                    <th data-dt-column="5" rowspan="1" colspan="1"
+                                                                        class="text-center">
+                                                                        <span class="dt-column-title">사용일시</span>
+                                                                    </th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>1</td>
+                                                                    <td>서비스명</td>
+                                                                    <td>유저 ID</td>
+                                                                    <td>소속 부서</td>
+                                                                    <td>사용일시</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>2</td>
+                                                                    <td>서비스명</td>
+                                                                    <td>유저 ID</td>
+                                                                    <td>소속 부서</td>
+                                                                    <td>사용일시</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>3</td>
+                                                                    <td>서비스명</td>
+                                                                    <td>유저 ID</td>
+                                                                    <td>소속 부서</td>
+                                                                    <td>사용일시</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>4</td>
+                                                                    <td>서비스명</td>
+                                                                    <td>유저 ID</td>
+                                                                    <td>소속 부서</td>
+                                                                    <td>사용일시</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>5</td>
+                                                                    <td>서비스명</td>
+                                                                    <td>유저 ID</td>
+                                                                    <td>소속 부서</td>
+                                                                    <td>사용일시</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-2">
+                                                    <div class="col-12">
+                                                        <div class="dt-paging paging_full_numbers">
+                                                            <ul class="pagination justify-content-center">
+                                                                <li class="dt-paging-button page-item disabled"><a
+                                                                        class="page-link first"
+                                                                        aria-controls="datatables-reponsive"
+                                                                        aria-disabled="true" aria-label="First"
+                                                                        data-dt-idx="first" tabindex="-1">«</a></li>
+                                                                <li class="dt-paging-button page-item disabled"><a
+                                                                        class="page-link previous"
+                                                                        aria-controls="datatables-reponsive"
+                                                                        aria-disabled="true" aria-label="Previous"
+                                                                        data-dt-idx="previous" tabindex="-1">‹</a></li>
+                                                                <li class="dt-paging-button page-item active"><a
+                                                                        href="#" class="page-link"
+                                                                        aria-controls="datatables-reponsive"
+                                                                        aria-current="page" data-dt-idx="0"
+                                                                        tabindex="0">1</a>
+                                                                </li>
+                                                                <li class="dt-paging-button page-item"><a href="#"
+                                                                        class="page-link"
+                                                                        aria-controls="datatables-reponsive"
+                                                                        data-dt-idx="1" tabindex="0">2</a></li>
+                                                                <li class="dt-paging-button page-item"><a href="#"
+                                                                        class="page-link"
+                                                                        aria-controls="datatables-reponsive"
+                                                                        data-dt-idx="2" tabindex="0">3</a></li>
+                                                                <li class="dt-paging-button page-item"><a href="#"
+                                                                        class="page-link"
+                                                                        aria-controls="datatables-reponsive"
+                                                                        data-dt-idx="3" tabindex="0">4</a></li>
+                                                                <li class="dt-paging-button page-item"><a href="#"
+                                                                        class="page-link"
+                                                                        aria-controls="datatables-reponsive"
+                                                                        data-dt-idx="4" tabindex="0">5</a></li>
+                                                                <li class="dt-paging-button page-item"><a href="#"
+                                                                        class="page-link"
+                                                                        aria-controls="datatables-reponsive"
+                                                                        data-dt-idx="5" tabindex="0">6</a></li>
+                                                                <li class="dt-paging-button page-item"><a href="#"
+                                                                        class="page-link next"
+                                                                        aria-controls="datatables-reponsive"
+                                                                        aria-label="Next" data-dt-idx="next"
+                                                                        tabindex="0">›</a></li>
+                                                                <li class="dt-paging-button page-item"><a href="#"
+                                                                        class="page-link last"
+                                                                        aria-controls="datatables-reponsive"
+                                                                        aria-label="Last" data-dt-idx="last"
+                                                                        tabindex="0">»</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header align-items-center d-flex">
+                                    <h5 class="card-title">지식별 사용자 및 채팅 수</h5>
+                                    <div class="ms-auto d-flex gap-2">
+                                        <div class="align-items-center d-flex gap-1">
+                                            <input class="form-control" type="text" name="datesingle">
+                                            <span>~</span>
+                                            <input class="form-control" type="text" name="datesingle">
+                                        </div>
+                                        <div class="d-flex gap-1">
+                                            <button type="button" class="btn btn-primary">조회</button>
+
+                                            <button type="button"
+                                                class="btn btn-outline-success ms-auto gap-1 d-flex align-items-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    data-lucide="download" class="lucide lucide-download">
+                                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                                    <line x1="12" x2="12" y1="15" y2="3"></line>
+                                                </svg>엑셀 다운로드</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="chart">
+                                                <div class="chartjs-size-monitor">
+                                                    <div class="chartjs-size-monitor-expand">
+                                                        <div class=""></div>
+                                                    </div>
+                                                    <div class="chartjs-size-monitor-shrink">
+                                                        <div class=""></div>
+                                                    </div>
+                                                </div>
+                                                <canvas id="chartjs-bar" width="621" height="300"
+                                                    style="display: block; width: 621px; height: 300px;"
+                                                    class="chartjs-render-monitor"></canvas>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div id="datatables-reponsive_wrapper"
+                                                class="dt-container dt-bootstrap5 dt-empty-footer">
+                                                <div class="row mt-2 justify-content-md-center">
+                                                    <div class="col-12 ">
+                                                        <table id="datatables-reponsive"
+                                                            class="table table-striped w-100 dataTable dtr-inline"
+                                                            aria-describedby="datatables-reponsive_info">
+                                                            <colgroup>
+                                                                <col data-dt-column="1"
+                                                                    style="width: 5%; min-width: 40px;">
+                                                                <col data-dt-column="2" style="width: auto;">
+                                                                <col data-dt-column="4" style="width: auto;">
+                                                                <col data-dt-column="3" style="width: auto;">
+                                                                <col data-dt-column="5" style="width: auto;">
+                                                            </colgroup>
+                                                            <thead>
+                                                                <tr role="row">
+                                                                    <th data-dt-column="1" rowspan="1" colspan="1"
+                                                                        class="text-center" aria-sort="ascending">
+                                                                        <span class="dt-column-title">No</span>
+                                                                    </th>
+                                                                    <th data-dt-column="2" rowspan="1" colspan="1"
+                                                                        class="text-center">
+                                                                        <span class="dt-column-title">지식명</span>
+                                                                    </th>
+                                                                    <th data-dt-column="3" rowspan="1" colspan="1"
+                                                                        class="text-center">
+                                                                        <span class="dt-column-title">유저 ID</span>
+                                                                    </th>
+                                                                    <th data-dt-column="4" rowspan="1" colspan="1"
+                                                                        class="text-center">
+                                                                        <span class="dt-column-title">소속 부서</span>
+                                                                    </th>
+                                                                    <th data-dt-column="5" rowspan="1" colspan="1"
+                                                                        class="text-center">
+                                                                        <span class="dt-column-title">접속일</span>
+                                                                    </th>
+                                                                    <th data-dt-column="5" rowspan="1" colspan="1"
+                                                                        class="text-center">
+                                                                        <span class="dt-column-title">채팅 수</span>
+                                                                    </th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>1</td>
+                                                                    <td>지식1</td>
+                                                                    <td>abc@gmail.com</td>
+                                                                    <td>부서명</td>
+                                                                    <td>YYYY-MM-DD 00:00</td>
+                                                                    <td>13회</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>1</td>
+                                                                    <td>지식1</td>
+                                                                    <td>abc@gmail.com</td>
+                                                                    <td>부서명</td>
+                                                                    <td>YYYY-MM-DD 00:00</td>
+                                                                    <td>13회</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>1</td>
+                                                                    <td>지식1</td>
+                                                                    <td>abc@gmail.com</td>
+                                                                    <td>부서명</td>
+                                                                    <td>YYYY-MM-DD 00:00</td>
+                                                                    <td>13회</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>1</td>
+                                                                    <td>지식1</td>
+                                                                    <td>abc@gmail.com</td>
+                                                                    <td>부서명</td>
+                                                                    <td>YYYY-MM-DD 00:00</td>
+                                                                    <td>13회</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>1</td>
+                                                                    <td>지식1</td>
+                                                                    <td>abc@gmail.com</td>
+                                                                    <td>부서명</td>
+                                                                    <td>YYYY-MM-DD 00:00</td>
+                                                                    <td>13회</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-2">
+                                                    <div class="col-12">
+                                                        <div class="dt-paging paging_full_numbers">
+                                                            <ul class="pagination justify-content-center">
+                                                                <li class="dt-paging-button page-item disabled"><a
+                                                                        class="page-link first"
+                                                                        aria-controls="datatables-reponsive"
+                                                                        aria-disabled="true" aria-label="First"
+                                                                        data-dt-idx="first" tabindex="-1">«</a></li>
+                                                                <li class="dt-paging-button page-item disabled"><a
+                                                                        class="page-link previous"
+                                                                        aria-controls="datatables-reponsive"
+                                                                        aria-disabled="true" aria-label="Previous"
+                                                                        data-dt-idx="previous" tabindex="-1">‹</a></li>
+                                                                <li class="dt-paging-button page-item active"><a
+                                                                        href="#" class="page-link"
+                                                                        aria-controls="datatables-reponsive"
+                                                                        aria-current="page" data-dt-idx="0"
+                                                                        tabindex="0">1</a>
+                                                                </li>
+                                                                <li class="dt-paging-button page-item"><a href="#"
+                                                                        class="page-link"
+                                                                        aria-controls="datatables-reponsive"
+                                                                        data-dt-idx="1" tabindex="0">2</a></li>
+                                                                <li class="dt-paging-button page-item"><a href="#"
+                                                                        class="page-link"
+                                                                        aria-controls="datatables-reponsive"
+                                                                        data-dt-idx="2" tabindex="0">3</a></li>
+                                                                <li class="dt-paging-button page-item"><a href="#"
+                                                                        class="page-link"
+                                                                        aria-controls="datatables-reponsive"
+                                                                        data-dt-idx="3" tabindex="0">4</a></li>
+                                                                <li class="dt-paging-button page-item"><a href="#"
+                                                                        class="page-link"
+                                                                        aria-controls="datatables-reponsive"
+                                                                        data-dt-idx="4" tabindex="0">5</a></li>
+                                                                <li class="dt-paging-button page-item"><a href="#"
+                                                                        class="page-link"
+                                                                        aria-controls="datatables-reponsive"
+                                                                        data-dt-idx="5" tabindex="0">6</a></li>
+                                                                <li class="dt-paging-button page-item"><a href="#"
+                                                                        class="page-link next"
+                                                                        aria-controls="datatables-reponsive"
+                                                                        aria-label="Next" data-dt-idx="next"
+                                                                        tabindex="0">›</a></li>
+                                                                <li class="dt-paging-button page-item"><a href="#"
+                                                                        class="page-link last"
+                                                                        aria-controls="datatables-reponsive"
+                                                                        aria-label="Last" data-dt-idx="last"
+                                                                        tabindex="0">»</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header align-items-center d-flex justify-content-between">
+                                    <h5 class="card-title">사용자 유형별 지식 사용량</h5>
+                                    <div class="d-flex gap-2">
+                                        <select class="form-select flex-1" name="chart-select">
+                                            <option value="">전체</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                        <div class="align-items-center d-flex gap-1">
+                                            <input class="form-control" type="text" name="datesingle">
+                                            <span>~</span>
+                                            <input class="form-control" type="text" name="datesingle">
+                                        </div>
+                                        <div class="d-flex gap-1">
+                                            <button type="button" class="btn btn-primary">조회</button>
+                                            <button type="button"
+                                                class="btn btn-outline-success ms-auto gap-1 d-flex align-items-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    data-lucide="download" class="lucide lucide-download">
+                                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                                    <line x1="12" x2="12" y1="15" y2="3"></line>
+                                                </svg>엑셀 다운로드</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="chart">
+                                                <div class="chartjs-size-monitor">
+                                                    <div class="chartjs-size-monitor-expand">
+                                                        <div class=""></div>
+                                                    </div>
+                                                    <div class="chartjs-size-monitor-shrink">
+                                                        <div class=""></div>
+                                                    </div>
+                                                </div>
+                                                <canvas id="chart03" width="621" height="300"
+                                                    style="display: block; width: 621px; height: 300px;"
+                                                    class="chartjs-render-monitor"></canvas>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div id="datatables-reponsive_wrapper"
+                                                class="dt-container dt-bootstrap5 dt-empty-footer">
+                                                <div class="row mt-2 justify-content-md-center">
+                                                    <div class="col-12 ">
+                                                        <table id="datatables-reponsive"
+                                                            class="table table-striped w-100 dataTable dtr-inline"
+                                                            aria-describedby="datatables-reponsive_info">
+                                                            <colgroup>
+                                                                <col data-dt-column="1"
+                                                                    style="width: 5%; min-width: 40px;">
+                                                                <col data-dt-column="2" style="width: auto;">
+                                                                <col data-dt-column="4" style="width: auto;">
+                                                                <col data-dt-column="3" style="width: auto;">
+                                                                <col data-dt-column="5" style="width: auto;">
+                                                            </colgroup>
+                                                            <thead>
+                                                                <tr role="row">
+                                                                    <th data-dt-column="1" rowspan="1" colspan="1"
+                                                                        class="text-center" aria-sort="ascending">
+                                                                        <span class="dt-column-title">No</span>
+                                                                    </th>
+                                                                    <th data-dt-column="2" rowspan="1" colspan="1"
+                                                                        class="text-center">
+                                                                        <span class="dt-column-title">지식명</span>
+                                                                    </th>
+                                                                    <th data-dt-column="3" rowspan="1" colspan="1"
+                                                                        class="text-center">
+                                                                        <span class="dt-column-title">유저 ID</span>
+                                                                    </th>
+                                                                    <th data-dt-column="4" rowspan="1" colspan="1"
+                                                                        class="text-center">
+                                                                        <span class="dt-column-title">소속 부서</span>
+                                                                    </th>
+                                                                    <th data-dt-column="5" rowspan="1" colspan="1"
+                                                                        class="text-center">
+                                                                        <span class="dt-column-title">접속일</span>
+                                                                    </th>
+                                                                    <th data-dt-column="5" rowspan="1" colspan="1"
+                                                                        class="text-center">
+                                                                        <span class="dt-column-title">채팅 수</span>
+                                                                    </th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>1</td>
+                                                                    <td>지식1</td>
+                                                                    <td>abc@gmail.com</td>
+                                                                    <td>부서명</td>
+                                                                    <td>YYYY-MM-DD 00:00</td>
+                                                                    <td>13회</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>1</td>
+                                                                    <td>지식1</td>
+                                                                    <td>abc@gmail.com</td>
+                                                                    <td>부서명</td>
+                                                                    <td>YYYY-MM-DD 00:00</td>
+                                                                    <td>13회</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>1</td>
+                                                                    <td>지식1</td>
+                                                                    <td>abc@gmail.com</td>
+                                                                    <td>부서명</td>
+                                                                    <td>YYYY-MM-DD 00:00</td>
+                                                                    <td>13회</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>1</td>
+                                                                    <td>지식1</td>
+                                                                    <td>abc@gmail.com</td>
+                                                                    <td>부서명</td>
+                                                                    <td>YYYY-MM-DD 00:00</td>
+                                                                    <td>13회</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>1</td>
+                                                                    <td>지식1</td>
+                                                                    <td>abc@gmail.com</td>
+                                                                    <td>부서명</td>
+                                                                    <td>YYYY-MM-DD 00:00</td>
+                                                                    <td>13회</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-2">
+                                                    <div class="col-12">
+                                                        <div class="dt-paging paging_full_numbers">
+                                                            <ul class="pagination justify-content-center">
+                                                                <li class="dt-paging-button page-item disabled"><a
+                                                                        class="page-link first"
+                                                                        aria-controls="datatables-reponsive"
+                                                                        aria-disabled="true" aria-label="First"
+                                                                        data-dt-idx="first" tabindex="-1">«</a></li>
+                                                                <li class="dt-paging-button page-item disabled"><a
+                                                                        class="page-link previous"
+                                                                        aria-controls="datatables-reponsive"
+                                                                        aria-disabled="true" aria-label="Previous"
+                                                                        data-dt-idx="previous" tabindex="-1">‹</a></li>
+                                                                <li class="dt-paging-button page-item active"><a
+                                                                        href="#" class="page-link"
+                                                                        aria-controls="datatables-reponsive"
+                                                                        aria-current="page" data-dt-idx="0"
+                                                                        tabindex="0">1</a>
+                                                                </li>
+                                                                <li class="dt-paging-button page-item"><a href="#"
+                                                                        class="page-link"
+                                                                        aria-controls="datatables-reponsive"
+                                                                        data-dt-idx="1" tabindex="0">2</a></li>
+                                                                <li class="dt-paging-button page-item"><a href="#"
+                                                                        class="page-link"
+                                                                        aria-controls="datatables-reponsive"
+                                                                        data-dt-idx="2" tabindex="0">3</a></li>
+                                                                <li class="dt-paging-button page-item"><a href="#"
+                                                                        class="page-link"
+                                                                        aria-controls="datatables-reponsive"
+                                                                        data-dt-idx="3" tabindex="0">4</a></li>
+                                                                <li class="dt-paging-button page-item"><a href="#"
+                                                                        class="page-link"
+                                                                        aria-controls="datatables-reponsive"
+                                                                        data-dt-idx="4" tabindex="0">5</a></li>
+                                                                <li class="dt-paging-button page-item"><a href="#"
+                                                                        class="page-link"
+                                                                        aria-controls="datatables-reponsive"
+                                                                        data-dt-idx="5" tabindex="0">6</a></li>
+                                                                <li class="dt-paging-button page-item"><a href="#"
+                                                                        class="page-link next"
+                                                                        aria-controls="datatables-reponsive"
+                                                                        aria-label="Next" data-dt-idx="next"
+                                                                        tabindex="0">›</a></li>
+                                                                <li class="dt-paging-button page-item"><a href="#"
+                                                                        class="page-link last"
+                                                                        aria-controls="datatables-reponsive"
+                                                                        aria-label="Last" data-dt-idx="last"
+                                                                        tabindex="0">»</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Start : Footer(common.js) -->
+            <footer class="footer" id="footer"></footer>
+            <!-- End : Footer -->
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/common.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // ==============================
+            // 서비스 접속 이용자 및 대화 통계
+            // ==============================
+            new Chart(document.getElementById("servicChatStats"), {
+                type: "line",
+                data: {
+                    labels: ["월요일", "화요일", "수요일", "목요일", "금요일", "토요일", "일요일"],
+                    datasets: [{
+                        label: "접속인원",
+                        fill: false,
+                        lineTension: 0, // 각진 라인으로 변경
+                        backgroundColor: "transparent",
+                        borderColor: window.cssVariables.primary,
+                        data: [35, 48, 60, 50, 70, 90, 85]
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    plugins: {
+                        filler: { propagate: false }
+                    },
+                    interaction: {
+                        intersect: false
+                    },
+                    scales: {
+                        xAxes: [{
+                            offset: false, // 가운데 정렬
+                            gridLines: {
+                                color: "rgba(0,0,0,0.05)"
+                            }
+                        }],
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true,
+                                max: 100,
+                                stepSize: 20 // y축 눈금 단위 20 고정
+                            },
+                            gridLines: {
+                                color: "rgba(0,0,0,0)"
+                            }
+                        }]
+                    },
+                    legend: {
+                        display: false
+                    },
+                    tooltips: {
+                        intersect: false
+                    },
+                    hover: {
+                        intersect: true
+                    }
+                }
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const randomData = () => Array.from({ length: 12 }, () => Math.floor(Math.random() * 101));
+
+            new Chart(document.getElementById("chartjs-bar"), {
+                type: "bar",
+                data: {
+                    labels: ["지식1", "지식2", "지식3", "지식4", "지식5", "지식6", "지식7", "지식8", "지식9", "지식10", "지식11", "지식12"],
+                    datasets: [
+                        {
+                            label: "사용자",
+                            backgroundColor: window.cssVariables.primary,
+                            borderColor: window.cssVariables.primary,
+                            hoverBackgroundColor: window.cssVariables.primary,
+                            hoverBorderColor: window.cssVariables.primary,
+                            data: randomData(), // 0~100 랜덤값 12개
+                            borderRadius: 0,
+                            barPercentage: 0.75,
+                            categoryPercentage: 0.5
+                        },
+                        {
+                            label: "채팅",
+                            backgroundColor: "#E8EAED",
+                            borderColor: "#E8EAED",
+                            hoverBackgroundColor: "#E8EAED",
+                            hoverBorderColor: "#E8EAED",
+                            data: randomData(), // 0~100 랜덤값 12개
+                            borderRadius: 0,
+                            barPercentage: 0.75,
+                            categoryPercentage: 0.5
+                        }
+                    ]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true // 범례는 사용자/채팅 그대로 보여줌
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                stepSize: 20
+                            },
+                            grid: {
+                                color: "rgba(0,0,0,0.05)"
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const randomData = () => Array.from({ length: 10 }, () => Math.floor(Math.random() * 101));
+
+            const colorList = [
+                getComputedStyle(document.documentElement).getPropertyValue('--bs-primary').trim(),
+                getComputedStyle(document.documentElement).getPropertyValue('--bs-primary-subtle').trim(),
+                getComputedStyle(document.documentElement).getPropertyValue('--bs-secondary').trim(),
+                getComputedStyle(document.documentElement).getPropertyValue('--bs-success').trim(),
+                getComputedStyle(document.documentElement).getPropertyValue('--bs-info').trim(),
+                getComputedStyle(document.documentElement).getPropertyValue('--bs-warning').trim(),
+                getComputedStyle(document.documentElement).getPropertyValue('--bs-danger').trim(),
+                getComputedStyle(document.documentElement).getPropertyValue('--bs-light').trim(),
+                getComputedStyle(document.documentElement).getPropertyValue('--bs-dark').trim()
+            ];
+
+            const getRandomColor = () => colorList[Math.floor(Math.random() * colorList.length)];
+
+            const datasets = [];
+            for (let i = 1; i <= 10; i++) {
+                const color = getRandomColor();
+                datasets.push({
+                    label: `지식${i}`,
+                    backgroundColor: color,
+                    borderColor: color,
+                    hoverBackgroundColor: color,
+                    hoverBorderColor: color,
+                    data: randomData(),
+                    borderRadius: 0,
+                    barPercentage: 0.75,
+                    categoryPercentage: 0.5
+                });
+            }
+
+            new Chart(document.getElementById("chart03"), {
+                type: "bar",
+                data: {
+                    labels: [
+                        "부서명1", "부서명2", "부서명3", "부서명4", "부서명5",
+                        "부서명6", "부서명7", "부서명8", "부서명9", "부서명10"
+                    ],
+                    datasets: datasets
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                stepSize: 20
+                            },
+                            grid: {
+                                color: "rgba(0,0,0,0.05)"
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>

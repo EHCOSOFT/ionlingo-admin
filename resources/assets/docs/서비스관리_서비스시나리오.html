@@ -15,7 +15,7 @@
         <nav id="sidebar" class="sidebar">
             <div class="sidebar-content js-simplebar">
                 <a class="sidebar-brand" href="대시보드.html">
-                    <img src="../../assets/dist/img/logo.svg" alt="아이오엔링고">
+                    <img src="img/logo.svg" alt="아이오엔링고">
                 </a>
 
                 <ul class="sidebar-nav">
@@ -295,8 +295,8 @@
                             <div class="tab">
                                 <ul class="nav nav-tabs" role="tablist">
                                     <li class="nav-item" role="presentation">
-                                        <a class="nav-link active" href="#service-scenario" data-bs-toggle="tab" role="tab"
-                                            aria-selected="false" tabindex="0">시나리오</a>
+                                        <a class="nav-link active" href="#service-scenario" data-bs-toggle="tab"
+                                            role="tab" aria-selected="false" tabindex="0">시나리오</a>
                                     </li>
                                     <li class="nav-item" role="presentation">
                                         <a class="nav-link" href="#service-simulation" data-bs-toggle="tab" role="tab"
@@ -309,8 +309,48 @@
                                             <div class="card-header">
                                                 <h5 class="card-title">서비스 프로세스</h5>
                                             </div>
-                                            <div class="card-body">
-                                               
+                                            <div class="card-body org-chart-group">
+                                                <div class="accordion" id="scenario-block">
+                                                    <div class="accordion-item">
+                                                        <h2 class="accordion-header">
+                                                            <button class="accordion-button" type="button"
+                                                                data-bs-toggle="collapse"
+                                                                data-bs-target="#scenario-block-category"
+                                                                aria-expanded="true"
+                                                                aria-controls="scenario-block-category">
+                                                                시나리오 블록
+                                                            </button>
+                                                        </h2>
+                                                        <div id="scenario-block-category"
+                                                            class="accordion-collapse collapse show"
+                                                            data-bs-parent="#accordionExample">
+                                                            <div class="accordion-body">
+                                                                <div class="org-chart-block">
+                                                                    <div class="draggable-node" draggable="true"
+                                                                        data-name="category">
+                                                                        카테고리
+                                                                    </div>
+                                                                    <div class="draggable-node" draggable="true"
+                                                                        data-name="knowledge">
+                                                                        지식</div>
+                                                                    <div class="draggable-node" draggable="true"
+                                                                        data-name="ioscript">
+                                                                        IO-SCRIPT</div>
+                                                                    <div class="draggable-node" draggable="true"
+                                                                        data-name="modalQuestion">
+                                                                        모델 질문 설정</div>
+                                                                    <div class="draggable-node" draggable="true"
+                                                                        data-name="modalSingle">
+                                                                        모델 싱글턴 답변</div>
+                                                                    <div class="draggable-node" draggable="true"
+                                                                        data-name="modalMultiton">
+                                                                        모델 멀티턴 답변</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="org-chart"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -320,7 +360,23 @@
                                                 <h5 class="card-title">서비스 프로세스</h5>
                                             </div>
                                             <div class="card-body">
-                                               
+                                                <div class="row">
+                                                    <div class="col-8">
+                                                        <div class="input-group mb-3">
+                                                            <label class="form-label">서비스 선택</label>
+                                                            <select class="form-select" name="service-simulation-select">
+                                                                <option value="">서비스 명</option>
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                                <option value="4">4</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <a href="#" class="btn btn-outline-primary">새 창으로 열기</a>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -332,50 +388,436 @@
                 </div>
             </main>
 
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row text-muted">
-                        <div class="col-6 text-start">
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    <a class="text-muted" href="#">Mayfarmsoft</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-6 text-end">
-                            <p class="mb-0">&copy; 2025</p>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            <!-- Start : Footer(common.js) -->
+            <footer class=" footer" id="footer"></footer>
+            <!-- End : Footer -->
         </div>
     </div>
 
-    <div class="modal fade" id="serviceModal01" tabindex="-1" aria-hidden="true">
+
+    <!-- 카테고리 추가 -->
+    <div class="modal fade" id="category-modal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
+                <div class="modal-header">
+                    <h5>카테고리 추가</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
                 <div class="modal-body m-3">
-                    <p class="mb-0">삭제한 후 해당 서비스를 다시 복구할 수 없습니다.<br>
-                        현재 사용 중인 서비스는 아닌지 확인 부탁드립니다.<br>
-                        정말 삭제하시겠습니까?</p>
+                    <form action="">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="input-group mb-3">
+                                    <label class="form-label">카테고리 명칭<span>*</span></label>
+                                    <input type="text" class="form-control" name="" placeholder="공백 포함 10자 제한" value=""
+                                        maxlength="10">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="input-group mb-3">
+                                    <label class="form-label">카테고리(홈) 아이콘</label>
+                                    <input class="form-control" type="file">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="input-group mb-3">
+                                    <label class="form-label">사용 여부</label>
+                                    <label class="form-check me-4">
+                                        <input name="category-situation" type="radio" class="form-check-input"
+                                            value="on">
+                                        <span class="form-check-label">On</span>
+                                    </label>
+                                    <label class="form-check">
+                                        <input name="category-situation" type="radio" class="form-check-input"
+                                            value="off">
+                                        <span class="form-check-label">Off</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">확인</button>
+                    <button type="submit" class="btn btn-primary">확인</button>
+                    <button type="button" class="btn btn-danger">삭제</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="modal fade" id="serviceModal03" tabindex="-1" aria-hidden="true">
+    <!-- 지식 설정 -->
+    <div class="modal fade" id="knowledge-modal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
+                <div class="modal-header">
+                    <h5>지식 설정</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
                 <div class="modal-body m-3">
-                    <p class="mb-0">작성하던 내용을 모두 잃게 됩니다.
-                        정말 취소하시겠습니까?</p>
+                    <form action="">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label class="form-label">지식 선택<span>*</span></label>
+                                    <select class="form-select" name="knowledge-select">
+                                        <option value="">지식 선택</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label class="form-label">(홈)지식 설명<span>*</span></label>
+                                    <textarea class="form-control"
+                                        placeholder="챗봇 진입점(홈) 화면에 노출되는 지식에 대한 설명을 100자 이내로 입력해주세요." rows="2"
+                                        maxlength="30"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label class="form-label">지식 메시지<span>*</span></label>
+                                    <textarea class="form-control"
+                                        placeholder="선택한 지식으로 사용자가 대화를 하기 위한 첫 질문을 200자 이내로 입력해주세요." rows="4"
+                                        maxlength="100"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label class="form-label">힌트 질의</label>
+                                    <div class="input-group-field">
+                                        <div class="d-flex gap-1">
+                                            <input type="text" class="form-control" name="" placeholder="공백 포함 200자 제한"
+                                                value="" maxlength="200">
+                                            <button type="button" class="btn-add-knowledge btn btn-outline-secondary">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    data-lucide="plus" class="lucide lucide-plus align-middle">
+                                                    <path d="M5 12h14"></path>
+                                                    <path d="M12 5v14"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">확인</button>
+                    <button type="submit" class="btn btn-primary">확인</button>
+                    <button type="button" class="btn btn-danger">삭제</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- IO-SCRIPT -->
+    <div class="modal fade" id="io-script-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5>IO-SCRIPT</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body m-3">
+                    <form action="" method="post">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label class="form-label">IO-SCRIPT 명칭<span>*</span></label>
+                                    <input type="text" class="form-control" name="" placeholder="스크립트 명 20자 제한"
+                                        maxlength="20" value="">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label class="form-label">IO-SCRIPT 설명</label>
+                                    <textarea class="form-control" placeholder="스크립트 설명 200자 제한" rows="3"
+                                        maxlength="200"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label class="form-label">스크립트 작성<span>*</span></label>
+                                    <textarea class="form-control" placeholder="" rows="6"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label class="form-label">PARAMETER 설정<span>*</span></label>
+                                    <div class="input-group-field">
+                                        <div class="d-flex gap-1">
+                                            <input type="text" class="form-control" name=""
+                                                placeholder="PARAMETER명을 입력해주세요." value="">
+                                            <input type="text" class="form-control" name="" placeholder="기본값을 입력해 주세요."
+                                                value="">
+                                            <button type="button" class="btn-add-io-script btn btn-outline-secondary">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    data-lucide="plus" class="lucide lucide-plus align-middle">
+                                                    <path d="M5 12h14"></path>
+                                                    <path d="M12 5v14"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">저장</button>
+                    <button type="button" class="btn btn-danger">삭제</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 모델 질문 설정 -->
+    <div class="modal fade" id="modal-question-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5>모델 질문 설정</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body m-3">
+                    <form action="">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label class="form-label">블록 명칭<span>*</span></label>
+                                    <input type="text" class="form-control" name=""
+                                        placeholder="모델의 질문 설정이 직관적으로 드러낼 수 있는 명칭을 20자 이내로 입력해주세요." value=""
+                                        maxlength="20">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label class="form-label">블록 설명</label>
+                                    <textarea class="form-control" placeholder="모델의 질문 설정에 대하여 설명하는 글을 200자 이내로 입력해주세요."
+                                        rows="3" maxlength="200"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label class="form-label">질문 입력<span>*</span></label>
+                                    <textarea class="form-control" placeholder="모델이 사용자에게 할 질문을 200자 이내로 질문해주세요."
+                                        rows="3" maxlength="200"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label class="form-label">PROMPT 작성<span>*</span></label>
+                                    <textarea class="form-control" placeholder="모델이 사용자의 질문에 대한 답변을 받기 위한 설정 값을 입력해주세요."
+                                        rows="3" maxlength="200"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">저장</button>
+                    <button type="button" class="btn btn-danger">삭제</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 모델 싱글턴 답변 -->
+    <div class="modal fade" id="modal-single-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5>모델 싱글턴 답변</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body m-3">
+                    <form action="">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label class="form-label">블록 명칭<span>*</span></label>
+                                    <input type="text" class="form-control" name=""
+                                        placeholder="모델의 싱글턴 답변을 직관적으로 드러낼 수 있는 명칭을 20자 이내로 입력해주세요." maxlength="20"
+                                        value="">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label class="form-label">싱글턴 메시지 입력</label>
+                                    <textarea class="form-control"
+                                        placeholder="모델이 답변을 출력할 때 사용자에게 안내할 메시지를 200자 이내로 입력해주세요." rows="3"
+                                        maxlength="200"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="mb-3">
+                                    <label class="form-label">답변출처 사용</label>
+                                    <label class="form-check me-4">
+                                        <input name="single-radio-01" type="radio" class="form-check-input">
+                                        <span class="form-check-label">On</span>
+                                    </label>
+                                    <label class="form-check">
+                                        <input name="single-radio-01" type="radio" class="form-check-input">
+                                        <span class="form-check-label">Off</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="mb-3">
+                                    <label class="form-label">추가질문 사용</label>
+                                    <label class="form-check me-4">
+                                        <input name="single-radio-02" type="radio" class="form-check-input">
+                                        <span class="form-check-label">On</span>
+                                    </label>
+                                    <label class="form-check">
+                                        <input name="single-radio-02" type="radio" class="form-check-input">
+                                        <span class="form-check-label">Off</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label class="form-label">점프 블록 선택<span>*</span></label>
+                                    <select class="form-select" name="single-jump-select">
+                                        <option value="">블록 선택</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label class="form-label">답변 링크 설정</label>
+                                    <div class="input-group-field">
+                                        <div class="d-flex gap-1">
+                                            <input type="text" class="form-control" name="" placeholder="버튼명 입력"
+                                                value="">
+                                            <input type="text" class="form-control" name="" placeholder="링크 입력"
+                                                value="">
+                                            <button type="button" class="btn-add-single-link btn btn-outline-secondary">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    data-lucide="plus" class="lucide lucide-plus align-middle">
+                                                    <path d="M5 12h14"></path>
+                                                    <path d="M12 5v14"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">저장</button>
+                    <button type="button" class="btn btn-danger">삭제</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 모델 멀티턴 답변 -->
+    <div class="modal fade" id="modal-multiton-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5>모델 멀티턴 답변</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body m-3">
+                    <form action="">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label class="form-label">블록 명칭<span>*</span></label>
+                                    <input type="text" class="form-control" name=""
+                                        placeholder="모델 멀티턴 설정을 직관적으로 드러낼 수 있는 명칭을 20자 이내로 입력해주세요." value=""
+                                        maxlength="10">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label class="form-label">멀티턴 메시지 입력<span>*</span></label>
+                                    <textarea class="form-control"
+                                        placeholder="모델이 멀티턴 답변을 출력할 때 사용자에게 안내할 메시지를 200자 이내로 입력해주세요." rows="5"
+                                        maxlength="500"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="mb-3">
+                                    <label class="form-label">답변출처 사용</label>
+                                    <label class="form-check me-4">
+                                        <input name="multiton-radio-01" type="radio" class="form-check-input">
+                                        <span class="form-check-label">On</span>
+                                    </label>
+                                    <label class="form-check">
+                                        <input name="multiton-radio-01" type="radio" class="form-check-input">
+                                        <span class="form-check-label">Off</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="mb-3">
+                                    <label class="form-label">추가질문 사용</label>
+                                    <label class="form-check me-4">
+                                        <input name="multiton-radio-02" type="radio" class="form-check-input">
+                                        <span class="form-check-label">On</span>
+                                    </label>
+                                    <label class="form-check">
+                                        <input name="multiton-radio-02" type="radio" class="form-check-input">
+                                        <span class="form-check-label">Off</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label class="form-label">답변 링크 설정</label>
+                                    <div class="input-group-field">
+                                        <div class="d-flex gap-1">
+                                            <input type="text" class="form-control" name="" placeholder="버튼명 입력"
+                                                value="">
+                                            <input type="text" class="form-control" name="" placeholder="링크 입력"
+                                                value="">
+                                            <button type="button"
+                                                class="btn-add-multiton-link btn btn-outline-secondary">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    data-lucide="plus" class="lucide lucide-plus align-middle">
+                                                    <path d="M5 12h14"></path>
+                                                    <path d="M12 5v14"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">저장</button>
+                    <button type="button" class="btn btn-danger">삭제</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
                 </div>
             </div>
@@ -383,7 +825,166 @@
     </div>
 
     <script src="js/app.js"></script>
-    <script src="../../assets/dist/js/common.js"></script>
+    <script src="js/common.js"></script>
+    <script src="https://cdn.balkan.app/orgchart.js"></script>
+    <script>
+        // -------------------------
+        // 템플릿 생성 함수
+        // -------------------------
+        function createTemplate(name, fillColor, strokeColor, textColor = "#000") {
+            OrgChart.templates[name] = Object.assign({}, OrgChart.templates.ana);
+            OrgChart.templates[name].size = [120, 60]
+
+            OrgChart.templates[name].node = `
+                <rect x="0" y="0" rx="8" ry="8" height="60" width="120" fill="${fillColor}" stroke="${strokeColor}" stroke-width="1"></rect>
+            `;
+
+            OrgChart.templates[name].field_0 = `
+                <text data-width="120" data-height="60" x="60" y="30" text-anchor="middle" alignment-baseline="middle"
+                style="font-size:14px;font-weight:500; fill:${textColor};">{val}</text>
+            `;
+        }
+
+
+        // -------------------------
+        // 템플릿 등록 (색상 순차 적용)
+        // -------------------------
+        createTemplate("templateStyleOne", "#3f80ea", "#295ec2", "#fff"); // primary
+        createTemplate("templateStyleTwo", "#295ec2", "#295ec2", "#fff"); // primary-subtle
+        createTemplate("templateStyleThree", "#495057", "#2c3035", "#fff"); // secondary
+        createTemplate("templateStyleFour", "#4bbf73", "#369b58", "#fff"); // success
+        createTemplate("templateStyleFive", "#1f9bcf", "#126c99", "#fff"); // info
+        createTemplate("templateStyleSix", "#e5a54b", "#bb7d28", "#000"); // warning
+        createTemplate("templateStyleSeven", "#d9534f", "#aa2e2a", "#fff"); // danger
+        createTemplate("templateStyleEight", "#eff2f6", "#cdd1d6", "#000"); // light
+
+        let nextId = 3;
+        let selectedNodeId = null;
+
+        // -------------------------
+        // OrgChart 생성
+        // -------------------------
+        window.chart = new OrgChart("#org-chart", {
+            enableDragDrop: true,
+            enableSearch: false,
+            enableCollapse: true,
+            nodeMouseClick: OrgChart.action.none,
+            editForm: {
+                enabled: false
+            },
+            menuButton: false,
+            nodeBinding: {
+                field_0: "name"
+            },
+            tags: {
+                service: { template: "templateStyleOne" },
+                category: { template: "templateStyleTwo" },
+                knowledge: { template: "templateStyleThree" },
+                ioscript: { template: "templateStyleFour" },
+                modalQuestion: { template: "templateStyleFive" },
+                modalSingle: { template: "templateStyleSix" },
+                modalMultiton: { template: "templateStyleSeven" }
+            },
+            nodes: [
+                { id: 1, name: "서비스", tags: ["service"] },
+                { id: 2, pid: 1, name: "카테고리", tags: ["category"] }
+            ]
+        });
+
+        // -------------------------
+        // 노드 클릭 시 선택된 ID 저장
+        // -------------------------
+        chart.on('click', function (sender, args) {
+            selectedNodeId = args.node.id;
+        });
+
+        // -------------------------
+        // 드래그 이벤트
+        // -------------------------
+        $(".draggable-node").on("dragstart", function (e) {
+            e.originalEvent.dataTransfer.setData("name", $(this).data("name"));
+        });
+
+        $("#org-chart").on("dragover", function (e) {
+            e.preventDefault();
+        });
+
+        $("#org-chart").on("drop", function (e) {
+            e.preventDefault();
+
+            const droppedName = e.originalEvent.dataTransfer.getData("name");
+            if (!selectedNodeId) {
+                alert("먼저 노드를 선택하세요.");
+                return;
+            }
+
+            const selectedNode = chart.getNode(selectedNodeId);
+
+            const tagMap = {
+                category: "category",
+                knowledge: "knowledge",
+                ioscript: "ioscript",
+                modalQuestion: "modalQuestion",
+                modalSingle: "modalSingle",
+                modalMultiton: "modalMultiton",
+            };
+
+            const tag = tagMap[droppedName];
+            const newNode = {
+                id: Date.now(),
+                name: droppedName,
+                tags: [tag]
+            };
+
+            if (droppedName === "category") {
+                newNode.pid = 1;
+            } else if (droppedName === "knowledge") {
+                if (!selectedNode.tags?.includes("category")) {
+                    alert("지식은 카테고리 노드에만 추가할 수 있어요.");
+                    return;
+                }
+                newNode.pid = selectedNode.id;
+            } else {
+                if (selectedNode.tags?.includes("category") || selectedNode.tags?.includes("knowledge")) {
+                    newNode.pid = selectedNode.id;
+                } else {
+                    alert("이 요소는 카테고리 또는 지식 노드에만 추가할 수 있어요.");
+                    return;
+                }
+            }
+
+            chart.addNode(newNode);
+        });
+
+        // -------------------------
+        // 노드 클릭 시 모달 오픈
+        // -------------------------
+        chart.on("click", function (sender, args) {
+            const node = args.node;
+
+            const modalMap = {
+                category: "category-modal",
+                knowledge: "knowledge-modal",
+                ioscript: "io-script-modal",
+                modalQuestion: "modal-question-modal",
+                modalSingle: "modal-single-modal",
+                modalMultiton: "modal-multiton-modal"
+            };
+
+            for (const tag in modalMap) {
+                if (node.tags?.includes(tag)) {
+                    showModal(modalMap[tag]);
+                    break;
+                }
+            }
+
+            function showModal(id) {
+                const modal = new bootstrap.Modal(document.getElementById(id));
+                modal.show();
+            }
+        });
+
+    </script>
 </body>
 
 </html>
