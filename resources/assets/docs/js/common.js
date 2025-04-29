@@ -491,7 +491,10 @@ $(document).ready(function () {
     -------------------------------- */
     $("input[name=\"datesingle\"]").daterangepicker({
         singleDatePicker: true,
-        showDropdowns: true
+        showDropdowns: true,
+        locale: {
+            format: 'YYYY-MM-DD'
+        }
     });
 
 
