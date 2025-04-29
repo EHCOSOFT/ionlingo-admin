@@ -536,3 +536,17 @@ textarea {
 .file-group .file-upload p {
     text-align: center;
 }
+
+.dt-paging {
+    position: relative;
+}
+
+.dt-paging .btn-excel-download {
+    align-items: center;
+    display: flex;
+    gap: var(--space-4-min);
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+}

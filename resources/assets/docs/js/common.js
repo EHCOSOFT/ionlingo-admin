@@ -98,7 +98,7 @@ $(document).ready(function () {
 								<rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
 								<path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
 							</svg>
-							<span class="align-middle">지식 그룹 관리</span>
+							<span class="align-middle">지식 관리</span>
 						</a>
 						<ul id="knowledge-group-manage" class="sidebar-dropdown list-unstyled collapse"
 							data-bs-parent="#sidebar">
@@ -287,7 +287,7 @@ $(document).ready(function () {
                     <div class="col-6 text-start">
                         <ul class="list-inline">
                             <li class="list-inline-item">
-                                <a class="text-muted" href="#">Mayfarmsoft</a>
+                                <a class="text-muted" href="#">Copyright 2025. 메이팜소프트 All rights reserved.</a>
                             </li>
                         </ul>
                     </div>
