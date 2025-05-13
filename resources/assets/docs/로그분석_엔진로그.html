@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light" data-layout="fluid" data-sidebar-theme="light" data-sidebar-position="left"
+	data-sidebar-behavior="sticky">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+
+	<link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<!-- Start : Sidebar(common.js) -->
+		<nav id="sidebar" class="sidebar"></nav>
+		<!-- End : Sidebar -->
+
+		<div class="main">
+			<!-- Start : Navbar(common.js) -->
+			<nav class="navbar navbar-expand navbar-bg" id="navbar"></nav>
+			<!-- End : Navbar -->
+
+			<main class="content">
+				<div class="container-fluid p-0">
+
+					<div class="row mb-2 mb-xl-3">
+						<div class="col-12 d-flex justify-content-between mb-3">
+							<h3>로그분석 > 엔진로그</h3>
+						</div>
+						<div class="col-12">
+							<div class="card">
+								<div class="card-header">
+									<h5 class="card-title">조회</h5>
+								</div>
+								<div class="card-body">
+									<div class="row">
+                                        <div class="col-3">
+											<div class="error-placeholder">
+												<label class="form-label">엔진</label>
+												<select class="form-select" name="model-category">
+													<option value="">전체</option>
+													<option value="1">유휴</option>
+													<option value="2">정상</option>
+													<option value="3">정지</option>
+												</select>
+											</div>
+										</div>
+										<div class="col-4">
+											<div class="mb-xl-0">
+												<label class="form-label">생성 날짜</label>
+												<div class="align-items-center d-flex gap-1">
+													<input class="form-control" type="text" name="datesingle">
+													<span>~</span>
+													<input class="form-control" type="text" name="datesingle">
+												</div>
+											</div>
+										</div>
+										<div class="col d-flex align-items-end justify-content-end">
+											<div class="d-flex gap-1">
+												<button type="button" class="btn btn-primary">검색</button>
+												<button type="button" class="btn btn-secondary">초기화</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-12">
+							<div class="card">
+								<div class="card-header d-flex align-items-center justify-content-between pb-0">
+									<h5 class="card-title">모델 등록 현황</h5>
+								</div>
+								<div class="card-body">
+									<div id="datatables-reponsive_wrapper"
+										class="dt-container dt-bootstrap5 dt-empty-footer">
+										<div class="row mt-2 justify-content-md-center">
+											<div class="col-12 ">
+												<table id="datatables-reponsive"
+													class="table table-striped w-100 dataTable dtr-inline"
+													aria-describedby="datatables-reponsive_info">
+													<colgroup>
+														<col data-dt-column="0" style="width: 10%;">
+														<col data-dt-column="1" style="width: 20%;">
+														<col data-dt-column="2" style="width: auto;">
+														<col data-dt-column="3" style="width: 10%;">
+														<col data-dt-column="4" style="width: 10%;">
+														<col data-dt-column="5" style="width: 20%;">
+													</colgroup>
+													<thead>
+														<tr role="row">
+															<th data-dt-column="1" rowspan="1" colspan="1"
+																class="text-center" aria-sort="ascending">No</th>
+															<th data-dt-column="2" rowspan="1" colspan="1"
+																class="text-center" aria-sort="ascending">
+																<span class="dt-column-title">모델명</span>
+															</th>
+															<th data-dt-column="3" rowspan="1" colspan="1"
+																class="text-center">
+																<span class="dt-column-title">모델 안내</span>
+															</th>
+															<th data-dt-column="4" rowspan="1" colspan="1"
+																class="text-center">
+																<span class="dt-column-title">모델 상태</span>
+															</th>
+															<th data-dt-column="5" rowspan="1" colspan="1"
+																class="text-center">
+																<span class="dt-column-title">사용여부</span>
+															</th>
+															<th data-dt-column="6" rowspan="1" colspan="1"
+																class="text-center">
+																<span class="dt-column-title">생성일</span>
+															</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>1</td>
+															<td tabindex="0"><a href="모델관리_모델설정_모델수정.html">GPT-3
+																	Tiny</a></td>
+															<td>모델 설명1</td>
+															<td><span class="badge badge-subtle-info">정상</span></td>
+															<td><span class="badge badge-subtle-success">No</span></td>
+															<td>YYYY-MM-DD 00:00</td>
+														</tr>
+														<tr>
+															<td>2</td>
+															<td tabindex="0"><a href="모델관리_모델설정_모델수정.html">GPT-3
+																	Tiny</a></td>
+															<td>모델 설명1</td>
+															<td><span class="badge badge-subtle-danger">정지</span></td>
+															<td><span class="badge badge-subtle-info">Yes</span></td>
+															<td>YYYY-MM-DD 00:00</td>
+														</tr>
+														<tr>
+															<td>3</td>
+															<td tabindex="0"><a href="모델관리_모델설정_모델수정.html">GPT-3
+																	Tiny</a></td>
+															<td>모델 설명1</td>
+															<td><span class="badge badge-subtle-warning">유휴</span></td>
+															<td><span class="badge badge-subtle-info">Yes</span></td>
+															<td>YYYY-MM-DD 00:00</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+										<div class="row mt-2">
+											<div class="col-12">
+												<div class="dt-paging paging_full_numbers">
+													<ul class="pagination justify-content-center">
+														<li class="dt-paging-button page-item disabled"><a
+																class="page-link first"
+																aria-controls="datatables-reponsive"
+																aria-disabled="true" aria-label="First"
+																data-dt-idx="first" tabindex="-1">«</a></li>
+														<li class="dt-paging-button page-item disabled"><a
+																class="page-link previous"
+																aria-controls="datatables-reponsive"
+																aria-disabled="true" aria-label="Previous"
+																data-dt-idx="previous" tabindex="-1">‹</a></li>
+														<li class="dt-paging-button page-item active"><a href="#"
+																class="page-link" aria-controls="datatables-reponsive"
+																aria-current="page" data-dt-idx="0" tabindex="0">1</a>
+														</li>
+														<li class="dt-paging-button page-item"><a href="#"
+																class="page-link" aria-controls="datatables-reponsive"
+																data-dt-idx="1" tabindex="0">2</a></li>
+														<li class="dt-paging-button page-item"><a href="#"
+																class="page-link" aria-controls="datatables-reponsive"
+																data-dt-idx="2" tabindex="0">3</a></li>
+														<li class="dt-paging-button page-item"><a href="#"
+																class="page-link" aria-controls="datatables-reponsive"
+																data-dt-idx="3" tabindex="0">4</a></li>
+														<li class="dt-paging-button page-item"><a href="#"
+																class="page-link" aria-controls="datatables-reponsive"
+																data-dt-idx="4" tabindex="0">5</a></li>
+														<li class="dt-paging-button page-item"><a href="#"
+																class="page-link" aria-controls="datatables-reponsive"
+																data-dt-idx="5" tabindex="0">6</a></li>
+														<li class="dt-paging-button page-item"><a href="#"
+																class="page-link next"
+																aria-controls="datatables-reponsive" aria-label="Next"
+																data-dt-idx="next" tabindex="0">›</a></li>
+														<li class="dt-paging-button page-item"><a href="#"
+																class="page-link last"
+																aria-controls="datatables-reponsive" aria-label="Last"
+																data-dt-idx="last" tabindex="0">»</a></li>
+													</ul>
+													<button type="button"
+														class="btn btn-outline-success btn-excel-download">
+														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+															viewBox="0 0 24 24" fill="none" stroke="currentColor"
+															stroke-width="2" stroke-linecap="round"
+															stroke-linejoin="round" data-lucide="download"
+															class="lucide lucide-download">
+															<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+															<polyline points="7 10 12 15 17 10"></polyline>
+															<line x1="12" x2="12" y1="15" y2="3"></line>
+														</svg>엑셀 다운로드</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+
+			<!-- Start : Footer(common.js) -->
+			<footer class="footer" id="footer"></footer>
+			<!-- End : Footer -->
+		</div>
+	</div>
+
+	<script src="js/app.js"></script>
+	<script src="js/common.js"></script>
+</body>
+
+</html>
