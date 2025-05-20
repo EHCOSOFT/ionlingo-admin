@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light" data-layout="fluid" data-sidebar-theme="light" data-sidebar-position="left"
+    data-sidebar-behavior="sticky">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Start : Sidebar(common.js) -->
+        <nav id="sidebar" class="sidebar"></nav>
+        <!-- End : Sidebar -->
+
+        <div class="main">
+            <!-- Start : Navbar(common.js) -->
+            <nav class="navbar navbar-expand navbar-bg" id="navbar"></nav>
+            <!-- End : Navbar -->
+
+            <main class="content">
+                <div class="container-fluid p-0">
+
+                    <div class="row mb-2 mb-xl-3">
+                        <div class="col-12 d-flex justify-content-between mb-3">
+                            <h3>대화관리 > 대화 목록</h3>
+                        </div>
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title">조회</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <div class="input-group mb-2">
+                                                <label class="form-label min-width">검색어</label>
+                                                <div class="d-flex gap-1 flex-1">
+                                                    <select class="form-select" name="">
+                                                        <option value="">전체</option>
+                                                        <option value="1">질의</option>
+                                                        <option value="2">컨텍스트</option>
+                                                    </select>
+                                                    <input type="text" class="form-control" name="model-name"
+                                                        placeholder="검색어를 입력하세요.">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-3 mb-2">
+                                            <div class="input-group">
+                                                <label class="form-label min-width">서비스</label>
+                                                <select class="form-select" name="">
+                                                    <option value="">전체</option>
+                                                    <option value="1">서비스1</option>
+                                                    <option value="2">서비스2</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="input-group">
+                                                <label class="form-label min-width">지식</label>
+                                                <select class="form-select" name="">
+                                                    <option value="">전체</option>
+                                                    <option value="1">지식1</option>
+                                                    <option value="2">지식2</option>
+                                                    <option value="3">지식3</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="input-group">
+                                                <label class="form-label min-width">지식파일</label>
+                                                <select class="form-select" name="">
+                                                    <option value="">전체</option>
+                                                    <option value="1">지식1</option>
+                                                    <option value="2">지식2</option>
+                                                    <option value="3">지식3</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="input-group">
+                                                <label class="form-label min-width">날짜</label>
+                                                <div class="align-items-center d-flex gap-1 flex-1">
+                                                    <input class="form-control" type="text" name="datesingle">
+                                                    <span>~</span>
+                                                    <input class="form-control" type="text" name="datesingle">
+                                                    <div class="check-group">
+                                                        <label class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="checkbox"
+                                                                value="option1">
+                                                            <span class="form-check-label">
+                                                                1일
+                                                            </span>
+                                                        </label>
+                                                        <label class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="checkbox"
+                                                                value="option2">
+                                                            <span class="form-check-label">
+                                                                1주일
+                                                            </span>
+                                                        </label>
+                                                        <label class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="checkbox"
+                                                                value="option3">
+                                                            <span class="form-check-label">
+                                                                1달
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col d-flex align-items-end justify-content-end">
+                                            <div class="d-flex gap-1">
+                                                <button type="button" class="btn btn-primary">검색</button>
+                                                <button type="button" class="btn btn-secondary">초기화</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header d-flex align-items-center justify-content-between pb-0">
+                                    <h5 class="card-title">대화 목록</h5>
+                                    <div class="ms-auto d-flex gap-1">
+                                        <button type="button" class="btn btn-outline-danger modal-trigger-btn"
+                                            data-modal-title="선택삭제 안내"
+                                            data-modal-body="현재 선택된 N개의 미식별 질의가 삭제됩니다..&#10;삭제하시겠습니까?"
+                                            data-modal-buttons='
+                                                [{"text":"확인","class":"btn-primary","callback":""},
+                                                {"text":"취소","class":"btn-secondary","dismiss":true}]'>선택삭제</button>
+                                        <button type="button"
+                                            class="btn btn-outline-success ms-auto gap-1 d-flex align-items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" data-lucide="download"
+                                                class="lucide lucide-download">
+                                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                                <polyline points="7 10 12 15 17 10"></polyline>
+                                                <line x1="12" x2="12" y1="15" y2="3"></line>
+                                            </svg>엑셀 다운로드</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div id="datatables-reponsive_wrapper"
+                                        class="dt-container dt-bootstrap5 dt-empty-footer">
+                                        <div class="row mt-2 justify-content-md-center">
+                                            <div class="col-12 ">
+                                                <table id="datatables-reponsive"
+                                                    class="table table-striped w-100 dataTable dtr-inline"
+                                                    aria-describedby="datatables-reponsive_info">
+                                                    <colgroup>
+                                                        <col data-dt-column="1" style="width: 5%;">
+                                                        <col data-dt-column="2" style="width: 5%;">
+                                                        <col data-dt-column="3" style="width: auto;">
+                                                        <col data-dt-column="4" style="width: auto;">
+                                                        <col data-dt-column="5" style="width: auto;">
+                                                        <col data-dt-column="6" style="width: 10%;">
+                                                        <col data-dt-column="7" style="width: 10%;">
+                                                    </colgroup>
+                                                    <thead>
+                                                        <tr role="row">
+                                                            <th data-dt-column="1" rowspan="1" colspan="1"
+                                                                class="text-center" aria-sort="ascending">
+                                                                <!-- ✅ 전체 선택용 체크박스: 공통 클래스 .check-all -->
+                                                                <label class="form-label">
+                                                                    <input type="checkbox"
+                                                                        class="form-check-input check-all">
+                                                                </label>
+                                                            </th>
+                                                            <th data-dt-column="2" rowspan="1" colspan="1"
+                                                                class="text-center" aria-sort="ascending">No</th>
+                                                            <th data-dt-column="3" rowspan="1" colspan="1"
+                                                                class="dt-orderable-asc dt-orderable-desc dt-ordering-asc text-center"
+                                                                aria-sort="ascending">
+                                                                <span class="dt-column-title">서비스 명</span>
+                                                                <span class="dt-column-order"></span>
+                                                            </th>
+                                                            <th data-dt-column="4" rowspan="1" colspan="1"
+                                                                class="dt-orderable-asc dt-orderable-desc dt-ordering-asc text-center">
+                                                                <span class="dt-column-title">지식</span>
+                                                                <span class="dt-column-order"></span>
+                                                            </th>
+                                                            <th data-dt-column="5" rowspan="1" colspan="1"
+                                                                class="dt-orderable-asc dt-orderable-desc dt-ordering-asc text-center">
+                                                                <span class="dt-column-title">지식 파일 명</span>
+                                                                <span class="dt-column-order"></span>
+                                                            </th>
+                                                            <th data-dt-column="6" rowspan="1" colspan="1"
+                                                                class="dt-orderable-asc dt-orderable-desc dt-ordering-asc text-center">
+                                                                <span class="dt-column-title">사용자 ID</span>
+                                                                <span class="dt-column-order"></span>
+                                                            </th>
+                                                            <th data-dt-column="7" rowspan="1" colspan="1"
+                                                                class="text-center">
+                                                                <span class="dt-column-title">최초질의</span>
+                                                            </th>
+                                                            <th data-dt-column="8" rowspan="1" colspan="1"
+                                                                class="text-center">
+                                                                <span class="dt-column-title">최초답변</span>
+                                                            </th>
+                                                            <th data-dt-column="9" rowspan="1" colspan="1"
+                                                                class="text-center">
+                                                                <span class="dt-column-title">사용자 반응</span>
+                                                            </th>
+                                                            <th data-dt-column="10" rowspan="1" colspan="1"
+                                                                class="dt-orderable-asc dt-orderable-desc dt-ordering-asc text-center">
+                                                                <span class="dt-column-title">질의 등록일</span>
+                                                            </th>
+                                                            <th data-dt-column="11" rowspan="1" colspan="1"
+                                                                class="text-center">
+                                                                <span class="dt-column-title">전체대화</span>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <!-- ✅ 개별 체크박스: 공통 클래스 .check-row -->
+                                                                <label class="form-label">
+                                                                    <input type="checkbox"
+                                                                        class="form-check-input check-row">
+                                                                </label>
+                                                            </td>
+                                                            <td>1</td>
+                                                            <td>서비스 명<br>(텍스트 전체 노출)</td>
+                                                            <td>지식 명<br>(텍스트전체노출)</td>
+                                                            <td>파일 명<br>(20자 이상 말줄임)</td>
+                                                            <td>대화사용자 ID</td>
+                                                            <td>사용자 입력 질의<br>
+                                                                (2줄 이상 말줄임표)</td>
+                                                            <td>모델 답변 내용<br>
+                                                                (2줄 이상 말줄임표)</td>
+                                                            <td>YYYY-MM-DD 00:00:00 </td>
+                                                            <td>
+                                                                <div class="d-flex gap-1 align-items-center">
+                                                                    <i
+                                                                        class="align-middle far fa-fw fa-hand-point-up"></i>
+                                                                    0 /
+                                                                    <i
+                                                                        class="align-middle far fa-fw fa-hand-point-down"></i>
+                                                                    0
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="btn-group justify-content-center">
+                                                                    <button type="button"
+                                                                        class="btn btn-outline-secondary"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#detailModal">
+                                                                        확인</button>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-2">
+                                            <div class="col-12">
+                                                <div class="dt-paging paging_full_numbers">
+                                                    <ul class="pagination justify-content-center">
+                                                        <li class="dt-paging-button page-item disabled"><a
+                                                                class="page-link first"
+                                                                aria-controls="datatables-reponsive"
+                                                                aria-disabled="true" aria-label="First"
+                                                                data-dt-idx="first" tabindex="-1">«</a></li>
+                                                        <li class="dt-paging-button page-item disabled"><a
+                                                                class="page-link previous"
+                                                                aria-controls="datatables-reponsive"
+                                                                aria-disabled="true" aria-label="Previous"
+                                                                data-dt-idx="previous" tabindex="-1">‹</a></li>
+                                                        <li class="dt-paging-button page-item active"><a href="#"
+                                                                class="page-link" aria-controls="datatables-reponsive"
+                                                                aria-current="page" data-dt-idx="0" tabindex="0">1</a>
+                                                        </li>
+                                                        <li class="dt-paging-button page-item"><a href="#"
+                                                                class="page-link" aria-controls="datatables-reponsive"
+                                                                data-dt-idx="1" tabindex="0">2</a></li>
+                                                        <li class="dt-paging-button page-item"><a href="#"
+                                                                class="page-link" aria-controls="datatables-reponsive"
+                                                                data-dt-idx="2" tabindex="0">3</a></li>
+                                                        <li class="dt-paging-button page-item"><a href="#"
+                                                                class="page-link" aria-controls="datatables-reponsive"
+                                                                data-dt-idx="3" tabindex="0">4</a></li>
+                                                        <li class="dt-paging-button page-item"><a href="#"
+                                                                class="page-link" aria-controls="datatables-reponsive"
+                                                                data-dt-idx="4" tabindex="0">5</a></li>
+                                                        <li class="dt-paging-button page-item"><a href="#"
+                                                                class="page-link" aria-controls="datatables-reponsive"
+                                                                data-dt-idx="5" tabindex="0">6</a></li>
+                                                        <li class="dt-paging-button page-item"><a href="#"
+                                                                class="page-link next"
+                                                                aria-controls="datatables-reponsive" aria-label="Next"
+                                                                data-dt-idx="next" tabindex="0">›</a></li>
+                                                        <li class="dt-paging-button page-item"><a href="#"
+                                                                class="page-link last"
+                                                                aria-controls="datatables-reponsive" aria-label="Last"
+                                                                data-dt-idx="last" tabindex="0">»</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Start : Footer(common.js) -->
+            <footer class="footer" id="footer"></footer>
+            <!-- End : Footer -->
+        </div>
+    </div>
+
+    <!-- 미식별 질의 처리 상세 -->
+    <div class="modal fade" id="detailModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">전체대화 보기</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="닫기"></button>
+                </div>
+                
+                    <div class="modal-body">
+                        <div class="input-group mb-3">
+                            <label class="form-label">서비스</label>
+                            <input type="text" class="form-control" value="서비스 명(전체노출)" disabled>
+                        </div>
+                        <div class="input-group mb-3">
+                            <label class="form-label">지식</label>
+                            <input type="text" class="form-control" value="지식 명(전체노출)" disabled>
+                        </div>
+                        <div class="input-group mb-3">
+                            <label class="form-label">지식 파일 명</label>
+                            <input type="text" class="form-control" value="파일 명(전체노출)" disabled>
+                        </div>
+                        <div class="input-group mb-3">
+                            <label class="form-label">질의 등록일</label>
+                            <input type="text" class="form-control" value="2025-05-20 12:00:00" disabled>
+                        </div>
+                        <div class="input-group mb-3">
+                            <label class="form-label">사용자 ID</label>
+                            <input type="text" class="form-control" value="대화 사용자 ID" disabled>
+                        </div>
+                        <div class="input-group mb-3">
+                            <label class="form-label">사용자 질의</label>
+                            <textarea class="form-control" placeholder="" rows="5">사용자 질의 500자 노출 이후</textarea>
+                        </div>
+                        <div class="input-group mb-3">
+                            <label class="form-label">컨텍스트</label>
+                            <textarea class="form-control" placeholder="" rows="5">시스템 처리 질의 500자 노출 이후</textarea>
+                        </div>
+                        <div class="all-dialog-view">
+                            <a href="javasciprt:void(0);" class="all-dialog-view-toggle">전체 대화보기<i
+                                    class="align-middle fas fa-fw fa-angle-down"></i></a>
+                            <div class="all-dialog-view-detail">
+                                <div class="tab">
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link active" href="#allDialog" data-bs-toggle="tab" role="tab"
+                                                aria-selected="true">
+                                                전체대화</a>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link" href="#dialogGood" data-bs-toggle="tab"
+                                                role="tab" aria-selected="true">
+                                                <i class="align-middle far fa-fw fa-hand-point-up"></i>
+                                                좋아요(00)</a>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link" href="#dialogBad" data-bs-toggle="tab" role="tab"
+                                                aria-selected="false" tabindex="-1">
+                                                <i class="align-middle far fa-fw fa-hand-point-down"></i>
+                                                싫어요(00) </a>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link" href="#noResponse" data-bs-toggle="tab" role="tab"
+                                                aria-selected="false" tabindex="-1">
+                                                <i class="align-middle me-2 far fa-fw fa-meh"></i>무반응</a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active show" id="allDialog" role="tabpanel">
+                                            <ul>
+                                                <li class="dialog-detail-item">
+                                                    <p>시작(최초)</p>
+                                                    <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
+                                                    <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
+                                                    <p>[사용자 반응]좋아요</p>
+                                                </li>
+                                                <li class="dialog-detail-item">
+                                                    <p>시작(최초)</p>
+                                                    <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
+                                                    <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
+                                                    <p>[사용자 반응]좋아요</p>
+                                                </li>
+                                                <li class="dialog-detail-item">
+                                                    <p>시작(최초)</p>
+                                                    <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
+                                                    <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
+                                                    <p>[사용자 반응]좋아요</p>
+                                                </li>
+                                                <li class="dialog-detail-item">
+                                                    <p>시작(최초)</p>
+                                                    <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
+                                                    <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
+                                                    <p>[사용자 반응]좋아요</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="tab-pane" id="dialogGood" role="tabpanel">
+                                            <ul>
+                                                <li class="dialog-detail-item">
+                                                    <p>시작(최초)</p>
+                                                    <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
+                                                    <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
+                                                    <p>[사용자 반응]좋아요</p>
+                                                </li>
+                                                <li class="dialog-detail-item">
+                                                    <p>시작(최초)</p>
+                                                    <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
+                                                    <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
+                                                    <p>[사용자 반응]좋아요</p>
+                                                </li>
+                                                <li class="dialog-detail-item">
+                                                    <p>시작(최초)</p>
+                                                    <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
+                                                    <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
+                                                    <p>[사용자 반응]좋아요</p>
+                                                </li>
+                                                <li class="dialog-detail-item">
+                                                    <p>시작(최초)</p>
+                                                    <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
+                                                    <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
+                                                    <p>[사용자 반응]좋아요</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="tab-pane" id="dialogBad" role="tabpanel">
+                                            <ul>
+                                                <li class="dialog-detail-item">
+                                                    <p>시작(최초)</p>
+                                                    <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
+                                                    <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
+                                                    <p>[사용자 반응]좋아요</p>
+                                                </li>
+                                                <li class="dialog-detail-item">
+                                                    <p>시작(최초)</p>
+                                                    <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
+                                                    <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
+                                                    <p>[사용자 반응]좋아요</p>
+                                                </li>
+                                                <li class="dialog-detail-item">
+                                                    <p>시작(최초)</p>
+                                                    <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
+                                                    <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
+                                                    <p>[사용자 반응]좋아요</p>
+                                                </li>
+                                                <li class="dialog-detail-item">
+                                                    <p>시작(최초)</p>
+                                                    <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
+                                                    <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
+                                                    <p>[사용자 반응]좋아요</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="tab-pane" id="noResponse" role="tabpanel">
+                                            <ul>
+                                                <li class="dialog-detail-item">
+                                                    <p>시작(최초)</p>
+                                                    <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
+                                                    <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
+                                                    <p>[사용자 반응]좋아요</p>
+                                                </li>
+                                                <li class="dialog-detail-item">
+                                                    <p>시작(최초)</p>
+                                                    <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
+                                                    <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
+                                                    <p>[사용자 반응]좋아요</p>
+                                                </li>
+                                                <li class="dialog-detail-item">
+                                                    <p>시작(최초)</p>
+                                                    <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
+                                                    <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
+                                                    <p>[사용자 반응]좋아요</p>
+                                                </li>
+                                                <li class="dialog-detail-item">
+                                                    <p>시작(최초)</p>
+                                                    <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
+                                                    <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
+                                                    <p>[사용자 반응]좋아요</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/common.js"></script>
+</body>
+
+</html>

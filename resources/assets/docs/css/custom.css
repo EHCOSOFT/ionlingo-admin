@@ -154,12 +154,27 @@ textarea {
     width: 128px;
 }
 
+.input-group>.form-label.min-width {
+    width: 80px;
+}
+
+.input-group-child {
+    align-items: center;
+    display: flex;
+
+}
+
 .card-header+.card-body {
     padding-top: 0;
 }
 
+
 .flex-1 {
     flex: 1;
+}
+
+.flex-auto {
+    flex: 0 0 auto;
 }
 
 .file-img-area {
@@ -529,12 +544,53 @@ textarea {
     cursor: pointer;
     display: flex;
     justify-content: center;
-    height: 200px;
+    height: 160px;
     width: 100%;
 }
 
 .file-group .file-upload p {
     text-align: center;
+}
+
+.file-group .file-preview {
+    align-items: center;
+    border: 1px solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+    cursor: pointer;
+    display: none;
+    justify-content: center;
+    height: 160px;
+    overflow-y: auto;
+    padding: var(--space-12-xs);
+    width: 100%;
+}
+
+.file-group .file-preview ul {
+    list-style-type: disc;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.file-group .file-preview ul li {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    list-style-type: disc;
+}
+
+.file-group .file-preview ul li span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 400px;
+}
+
+.file-group .file-preview .btn-file-list-del {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: var(--space-4-min)
 }
 
 .dt-paging {
@@ -549,4 +605,108 @@ textarea {
     top: 0;
     right: 0;
     z-index: 1;
+}
+
+.check-group {
+    align-items: center;
+    display: flex;
+}
+
+.check-group .form-check {
+    flex: 0 0 auto;
+}
+
+.all-dialog-view-toggle {
+    text-align: center;
+}
+
+.all-dialog-view-toggle.show i {
+    transform: rotate(180deg);
+}
+
+.all-dialog-view {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16-sm);
+}
+
+.all-dialog-view .tab {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16-sm);
+}
+
+.all-dialog-view .tab .nav-tabs {
+    gap: var(--space-8-xxs);
+}
+
+.all-dialog-view .tab .nav-tabs .nav-link {
+    border-radius: var(--radius-full);
+    padding: var(--space-8-xxs) var(--space-16-sm);
+}
+
+.all-dialog-view .tab .nav-tabs .nav-link.active {
+    background: var(--bs-primary);
+    color: var(--color-ffffff-white);
+}
+
+.all-dialog-view-detail {
+    display: none;
+}
+
+.all-dialog-view-detail .tab-content {
+    box-shadow: none;
+    border: 1px solid #dee6ed;
+}
+
+.all-dialog-view-detail .tab-content ul {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-20-md);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dialog-detail-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.dialog-detail-item p {
+    margin: 0;
+}
+
+.spinner-wrap {
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    flex-direction: column;
+    gap: var(--space-20-md);
+    justify-content: center;
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.spinner-wrap.show {
+    display: flex;
+}
+
+.error-wrap {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    gap: var(--space-24-lg);
+    justify-content: center;
+    width: 100%;
+}
+
+.error-wrap h1 {
+    font-weight: 700;
 }

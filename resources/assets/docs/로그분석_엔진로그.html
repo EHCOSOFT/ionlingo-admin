@@ -35,7 +35,7 @@
 								</div>
 								<div class="card-body">
 									<div class="row">
-                                        <div class="col-3">
+										<div class="col-3">
 											<div class="error-placeholder">
 												<label class="form-label">엔진</label>
 												<select class="form-select" name="model-category">
@@ -46,14 +46,38 @@
 												</select>
 											</div>
 										</div>
-										<div class="col-4">
+										<div class="col-6">
 											<div class="mb-xl-0">
 												<label class="form-label">생성 날짜</label>
 												<div class="align-items-center d-flex gap-1">
 													<input class="form-control" type="text" name="datesingle">
 													<span>~</span>
 													<input class="form-control" type="text" name="datesingle">
+													<div class="check-group">
+														<label class="form-check form-check-inline">
+															<input class="form-check-input" type="checkbox"
+																value="option1">
+															<span class="form-check-label">
+																1일
+															</span>
+														</label>
+														<label class="form-check form-check-inline">
+															<input class="form-check-input" type="checkbox"
+																value="option2">
+															<span class="form-check-label">
+																1주일
+															</span>
+														</label>
+														<label class="form-check form-check-inline">
+															<input class="form-check-input" type="checkbox"
+																value="option3">
+															<span class="form-check-label">
+																1달
+															</span>
+														</label>
+													</div>
 												</div>
+
 											</div>
 										</div>
 										<div class="col d-flex align-items-end justify-content-end">
@@ -69,7 +93,22 @@
 						<div class="col-12">
 							<div class="card">
 								<div class="card-header d-flex align-items-center justify-content-between pb-0">
-									<h5 class="card-title">모델 등록 현황</h5>
+									<h5 class="card-title">로그 내역</h5>
+									<div class="ms-auto d-flex gap-1">
+										<button type="button"
+											class="btn btn-outline-danger ms-auto gap-1 d-flex align-items-center">
+											선택삭제</button>
+										<button type="button"
+											class="btn btn-outline-success ms-auto gap-1 d-flex align-items-center">
+											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+												viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+												stroke-linecap="round" stroke-linejoin="round" data-lucide="download"
+												class="lucide lucide-download">
+												<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+												<polyline points="7 10 12 15 17 10"></polyline>
+												<line x1="12" x2="12" y1="15" y2="3"></line>
+											</svg>엑셀 다운로드</button>
+									</div>
 								</div>
 								<div class="card-body">
 									<div id="datatables-reponsive_wrapper"
@@ -80,66 +119,98 @@
 													class="table table-striped w-100 dataTable dtr-inline"
 													aria-describedby="datatables-reponsive_info">
 													<colgroup>
-														<col data-dt-column="0" style="width: 10%;">
-														<col data-dt-column="1" style="width: 20%;">
-														<col data-dt-column="2" style="width: auto;">
-														<col data-dt-column="3" style="width: 10%;">
+														<col data-dt-column="1" style="width: 5%;">
+														<col data-dt-column="2" style="width: 5%;">
+														<col data-dt-column="5" style="width: auto;">
+														<col data-dt-column="3" style="width: auto;">
 														<col data-dt-column="4" style="width: 10%;">
-														<col data-dt-column="5" style="width: 20%;">
+														<col data-dt-column="7" style="width: 15%;">
+														<col data-dt-column="6" style="width: auto;">
+														<col data-dt-column="8" style="width: 10%;">
+														<col data-dt-column="8" style="width: 10%;">
 													</colgroup>
 													<thead>
 														<tr role="row">
 															<th data-dt-column="1" rowspan="1" colspan="1"
-																class="text-center" aria-sort="ascending">No</th>
-															<th data-dt-column="2" rowspan="1" colspan="1"
 																class="text-center" aria-sort="ascending">
-																<span class="dt-column-title">모델명</span>
+																<!-- ✅ 전체 선택용 체크박스: 공통 클래스 .check-all -->
+																<label class="form-label">
+																	<input type="checkbox"
+																		class="form-check-input check-all">
+																</label>
 															</th>
+															<th data-dt-column="2" rowspan="1" colspan="1"
+																class="text-center" aria-sort="ascending">No</th>
 															<th data-dt-column="3" rowspan="1" colspan="1"
-																class="text-center">
-																<span class="dt-column-title">모델 안내</span>
+																class="dt-orderable-asc dt-orderable-desc dt-ordering-asc text-center"
+																aria-sort="ascending">
+																<span class="dt-column-title">엔진 명</span>
+																<span class="dt-column-order"></span>
 															</th>
 															<th data-dt-column="4" rowspan="1" colspan="1"
 																class="text-center">
-																<span class="dt-column-title">모델 상태</span>
+																<span class="dt-column-title">유형</span>
+																<span class="dt-column-order"></span>
 															</th>
 															<th data-dt-column="5" rowspan="1" colspan="1"
 																class="text-center">
-																<span class="dt-column-title">사용여부</span>
+																<span class="dt-column-title">요청 ID</span>
+																<span class="dt-column-order"></span>
 															</th>
 															<th data-dt-column="6" rowspan="1" colspan="1"
 																class="text-center">
-																<span class="dt-column-title">생성일</span>
+																<span class="dt-column-title">작업 결과</span>
+															</th>
+															<th data-dt-column="7" rowspan="1" colspan="1"
+																class="dt-orderable-asc dt-orderable-desc dt-ordering-asc text-center">
+																<span class="dt-column-title">응답 시간(ms)</span>
+																<span class="dt-column-order"></span>
+															</th>
+															<th data-dt-column="8" rowspan="1" colspan="1"
+																class="dt-orderable-asc dt-orderable-desc dt-ordering-asc text-center">
+																<span class="dt-column-title">로그 메시지</span>
+															</th>
+															<th data-dt-column="9" rowspan="1" colspan="1"
+																class="dt-orderable-asc dt-orderable-desc dt-ordering-asc text-center">
+																<span class="dt-column-title">발생 시간</span>
+																<span class="dt-column-order"></span>
 															</th>
 														</tr>
 													</thead>
 													<tbody>
 														<tr>
+															<td>
+																<!-- ✅ 개별 체크박스: 공통 클래스 .check-row -->
+																<label class="form-label">
+																	<input type="checkbox"
+																		class="form-check-input check-row">
+																</label>
+															</td>
 															<td>1</td>
-															<td tabindex="0"><a href="모델관리_모델설정_모델수정.html">GPT-3
-																	Tiny</a></td>
-															<td>모델 설명1</td>
-															<td><span class="badge badge-subtle-info">정상</span></td>
-															<td><span class="badge badge-subtle-success">No</span></td>
-															<td>YYYY-MM-DD 00:00</td>
+															<td>엔진 명칭(텍스트 전체노출)</td>
+															<td>실행된 작업 또는 이벤트 유형</td>
+															<td>고유 식별자</td>
+															<td><span class="badge badge-subtle-info">성공</span></td>
+															<td>요청 처리 시간</td>
+															<td>로그 상세 메시지</td>
+															<td>YYYY-MM-DD 00:00:00 </td>
 														</tr>
 														<tr>
+															<td>
+																<!-- ✅ 개별 체크박스: 공통 클래스 .check-row -->
+																<label class="form-label">
+																	<input type="checkbox"
+																		class="form-check-input check-row">
+																</label>
+															</td>
 															<td>2</td>
-															<td tabindex="0"><a href="모델관리_모델설정_모델수정.html">GPT-3
-																	Tiny</a></td>
-															<td>모델 설명1</td>
-															<td><span class="badge badge-subtle-danger">정지</span></td>
-															<td><span class="badge badge-subtle-info">Yes</span></td>
-															<td>YYYY-MM-DD 00:00</td>
-														</tr>
-														<tr>
-															<td>3</td>
-															<td tabindex="0"><a href="모델관리_모델설정_모델수정.html">GPT-3
-																	Tiny</a></td>
-															<td>모델 설명1</td>
-															<td><span class="badge badge-subtle-warning">유휴</span></td>
-															<td><span class="badge badge-subtle-info">Yes</span></td>
-															<td>YYYY-MM-DD 00:00</td>
+															<td>엔진 명칭(텍스트 전체노출)</td>
+															<td>실행된 작업 또는 이벤트 유형</td>
+															<td>고유 식별자</td>
+															<td><span class="badge badge-subtle-danger">실패</span></td>
+															<td>요청 처리 시간</td>
+															<td>로그 상세 메시지</td>
+															<td>YYYY-MM-DD 00:00:00 </td>
 														</tr>
 													</tbody>
 												</table>
@@ -187,17 +258,6 @@
 																aria-controls="datatables-reponsive" aria-label="Last"
 																data-dt-idx="last" tabindex="0">»</a></li>
 													</ul>
-													<button type="button"
-														class="btn btn-outline-success btn-excel-download">
-														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-															viewBox="0 0 24 24" fill="none" stroke="currentColor"
-															stroke-width="2" stroke-linecap="round"
-															stroke-linejoin="round" data-lucide="download"
-															class="lucide lucide-download">
-															<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-															<polyline points="7 10 12 15 17 10"></polyline>
-															<line x1="12" x2="12" y1="15" y2="3"></line>
-														</svg>엑셀 다운로드</button>
 												</div>
 											</div>
 										</div>

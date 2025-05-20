@@ -1075,12 +1075,14 @@ $(document).ready(function () {
 
     const $fileGroup = $(".file-group");
     const $fileInput = $("#fileUpload");
-    const $filePreview = $(".file-preview");
+    const $filePreview = $(".file-preview ul");
+    const $filePreviewWrap = $(".file-preview");
+    const $fileUploadLabel = $(".file-upload");
 
     // 📍 클릭 시 input[type="file"] 열기
-    $fileGroup.on("click", function () {
-        $fileInput.trigger("click");
-    });
+    // $fileGroup.on("click", ".file-upload", function () {
+    //     $fileInput.trigger("click");
+    // });
 
     // 📍 드래그 요소 위로 올렸을 때
     $fileGroup.on("dragover", function (e) {
@@ -1103,22 +1105,78 @@ $(document).ready(function () {
         $(this).removeClass("dragover");
 
         const files = e.originalEvent.dataTransfer.files;
-
         if (files.length > 0) {
-            // input 요소의 파일 리스트를 수동으로 할당할 수는 없음 (보안 제한 있음)
-            // 따라서 fileInput의 change 이벤트를 트리거하는 방식으로 처리하거나 미리보기만 업데이트
-            const fileNames = Array.from(files).map(file => file.name).join(", ");
-            $filePreview.text(`선택된 파일: ${fileNames}`);
+            renderFileList(files);
         }
     });
 
     // 📍 input으로 직접 선택한 경우 처리
     $fileInput.on("change", function () {
         const files = this.files;
-
         if (files.length > 0) {
-            const fileNames = Array.from(files).map(file => file.name).join(", ");
-            $filePreview.text(`업로드 파일: ${fileNames}`);
+            renderFileList(files);
         }
+    });
+
+    // 📍 파일 목록 렌더링 함수
+    function renderFileList(files) {
+        $filePreview.empty(); // 기존 목록 초기화
+
+        Array.from(files).forEach(file => {
+            const fileItem = `
+            <li>
+                <span>${file.name}</span>
+                <button type="button" class="btn btn-file-list-del">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" data-lucide="x"
+                        class="lucide lucide-x align-middle">
+                        <path d="M18 6 6 18"></path>
+                        <path d="m6 6 12 12"></path>
+                    </svg>
+                </button>
+            </li>`;
+            $filePreview.append(fileItem);
+        });
+
+        toggleFileUI(true); // 파일이 있을 때 UI 상태 갱신
+    }
+
+    // 📍 삭제 버튼 클릭 시 해당 li 삭제
+    $filePreview.on("click", ".btn-file-list-del", function () {
+        $(this).closest("li").remove();
+
+        const hasFiles = $filePreview.children("li").length > 0;
+        toggleFileUI(hasFiles);
+    });
+
+    // 📍 UI 상태 토글 함수
+    function toggleFileUI(hasFiles) {
+        if (hasFiles) {
+            $filePreviewWrap.show();
+            $fileUploadLabel.hide();
+        } else {
+            $filePreviewWrap.hide();
+            $fileUploadLabel.show();
+        }
+    }
+
+
+
+
+
+
+
+    // ==============================
+    // 대화관리 > 대화목록
+    // ==============================
+    $(".all-dialog-view-toggle").on("click", function (e) {
+        e.preventDefault();
+
+        // toggle 대상: .all-dialog-view-detail (현재 토글 열고 닫기)
+        $(this).next(".all-dialog-view-detail").slideToggle(200);
+
+        // 클릭한 toggle 버튼에 show 클래스 토글
+        $(this).toggleClass("show");
     });
 });

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light" data-layout="fluid" data-sidebar-theme="light" data-sidebar-position="left"
+    data-sidebar-behavior="sticky">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Start : Sidebar(common.js) -->
+        <nav id="sidebar" class="sidebar"></nav>
+        <!-- End : Sidebar -->
+
+        <div class="main">
+            <!-- Start : Navbar(common.js) -->
+            <nav class="navbar navbar-expand navbar-bg" id="navbar"></nav>
+            <!-- End : Navbar -->
+
+            <main class="content">
+                <div class="container-fluid p-0">
+
+                    <div class="row mb-2 mb-xl-3">
+                        <div class="col-12 d-flex justify-content-between mb-3">
+                            <h3>사전 관리 > 동의어 사전 > 동의어 등록</h3>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title">키워드</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <form id="engineAddForm" novalidate="">
+                                                <div class="mb-3">
+                                                    <label class="form-label">서비스 선택<span>*</span></label>
+                                                    <select class="form-select" name="service-select">
+                                                        <option value="">서비스를 선택해주세요.</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">지식 선택<span>*</span></label>
+                                                    <select class="form-select" name="knowledge-select">
+                                                        <option value="">지식을 선택해주세요.</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">신조어 입력<span>※ 엔터를 사용하여 여러 개를 입력할 수
+                                                            있습니다.</span></label>
+                                                    <input type="text" class="form-control" name="engine-explanation"
+                                                        placeholder="키워드를 입력해주세요.">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">서비스 전체 공유<span>*</span></label>
+                                                    <label class="form-check me-4">
+                                                        <input name="service-share" type="radio"
+                                                            class="form-check-input">
+                                                        <span class="form-check-label">공유</span>
+                                                    </label>
+                                                    <label class="form-check">
+                                                        <input name="service-share" type="radio"
+                                                            class="form-check-input">
+                                                        <span class="form-check-label">공유 안 함</span>
+                                                    </label>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <!-- ✅ 확인 만 -->
+                                        <button type="submit" class="btn btn-primary modal-trigger-btn"
+                                            data-modal-title="유효하지 않은 항목 확인"
+                                            data-modal-body="유효하지 않은 항목이 있습니다.&#10;비어 있거나 잘못 입력된 항목들을 확인 후 재시도 해주세요"
+                                            data-modal-buttons='
+                                                [{"text":"확인","class":"btn-primary", "dismiss":true}]'>등록</button>
+                                        <!-- ✅ 확인 + 취소 -->
+                                        <button type="button" class="btn btn-secondary modal-trigger-btn"
+                                            data-modal-title="페이지 이탈 여부 확인"
+                                            data-modal-body="입력한 정보를 저장하지 않고, 페이지 이탈 시 입력된 정보는 저장되지 않습니다.&#10;페이지를 이동하시겠습니까?"
+                                            data-modal-buttons='
+                                                    [{"text":"확인","class":"btn-primary","callback":""},
+                                                    {"text":"취소","class":"btn-secondary","dismiss":true}]'>취소</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Start : Footer(common.js) -->
+            <footer class="footer" id="footer"></footer>
+            <!-- End : Footer -->
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/common.js"></script>
+</body>
+
+</html>
