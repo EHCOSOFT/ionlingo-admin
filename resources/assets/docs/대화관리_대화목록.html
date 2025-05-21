@@ -136,16 +136,7 @@
                                             data-modal-buttons='
                                                 [{"text":"확인","class":"btn-primary","callback":""},
                                                 {"text":"취소","class":"btn-secondary","dismiss":true}]'>선택삭제</button>
-                                        <button type="button"
-                                            class="btn btn-outline-success ms-auto gap-1 d-flex align-items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round" data-lucide="download"
-                                                class="lucide lucide-download">
-                                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                                                <polyline points="7 10 12 15 17 10"></polyline>
-                                                <line x1="12" x2="12" y1="15" y2="3"></line>
-                                            </svg>엑셀 다운로드</button>
+                                        
                                     </div>
                                 </div>
                                 <div class="card-body">
@@ -306,6 +297,17 @@
                                                                 aria-controls="datatables-reponsive" aria-label="Last"
                                                                 data-dt-idx="last" tabindex="0">»</a></li>
                                                     </ul>
+                                                    <button type="button"
+                                                        class="btn btn-outline-success ms-auto gap-1 d-flex align-items-center btn-excel-download">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                            stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round" data-lucide="download"
+                                                            class="lucide lucide-download">
+                                                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                                            <polyline points="7 10 12 15 17 10"></polyline>
+                                                            <line x1="12" x2="12" y1="15" y2="3"></line>
+                                                        </svg>엑셀 다운로드</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -331,183 +333,183 @@
                     <h5 class="modal-title">전체대화 보기</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="닫기"></button>
                 </div>
-                
-                    <div class="modal-body">
-                        <div class="input-group mb-3">
-                            <label class="form-label">서비스</label>
-                            <input type="text" class="form-control" value="서비스 명(전체노출)" disabled>
-                        </div>
-                        <div class="input-group mb-3">
-                            <label class="form-label">지식</label>
-                            <input type="text" class="form-control" value="지식 명(전체노출)" disabled>
-                        </div>
-                        <div class="input-group mb-3">
-                            <label class="form-label">지식 파일 명</label>
-                            <input type="text" class="form-control" value="파일 명(전체노출)" disabled>
-                        </div>
-                        <div class="input-group mb-3">
-                            <label class="form-label">질의 등록일</label>
-                            <input type="text" class="form-control" value="2025-05-20 12:00:00" disabled>
-                        </div>
-                        <div class="input-group mb-3">
-                            <label class="form-label">사용자 ID</label>
-                            <input type="text" class="form-control" value="대화 사용자 ID" disabled>
-                        </div>
-                        <div class="input-group mb-3">
-                            <label class="form-label">사용자 질의</label>
-                            <textarea class="form-control" placeholder="" rows="5">사용자 질의 500자 노출 이후</textarea>
-                        </div>
-                        <div class="input-group mb-3">
-                            <label class="form-label">컨텍스트</label>
-                            <textarea class="form-control" placeholder="" rows="5">시스템 처리 질의 500자 노출 이후</textarea>
-                        </div>
-                        <div class="all-dialog-view">
-                            <a href="javasciprt:void(0);" class="all-dialog-view-toggle">전체 대화보기<i
-                                    class="align-middle fas fa-fw fa-angle-down"></i></a>
-                            <div class="all-dialog-view-detail">
-                                <div class="tab">
-                                    <ul class="nav nav-tabs" role="tablist">
-                                        <li class="nav-item" role="presentation">
-                                            <a class="nav-link active" href="#allDialog" data-bs-toggle="tab" role="tab"
-                                                aria-selected="true">
-                                                전체대화</a>
-                                        </li>
-                                        <li class="nav-item" role="presentation">
-                                            <a class="nav-link" href="#dialogGood" data-bs-toggle="tab"
-                                                role="tab" aria-selected="true">
-                                                <i class="align-middle far fa-fw fa-hand-point-up"></i>
-                                                좋아요(00)</a>
-                                        </li>
-                                        <li class="nav-item" role="presentation">
-                                            <a class="nav-link" href="#dialogBad" data-bs-toggle="tab" role="tab"
-                                                aria-selected="false" tabindex="-1">
-                                                <i class="align-middle far fa-fw fa-hand-point-down"></i>
-                                                싫어요(00) </a>
-                                        </li>
-                                        <li class="nav-item" role="presentation">
-                                            <a class="nav-link" href="#noResponse" data-bs-toggle="tab" role="tab"
-                                                aria-selected="false" tabindex="-1">
-                                                <i class="align-middle me-2 far fa-fw fa-meh"></i>무반응</a>
-                                        </li>
-                                    </ul>
-                                    <div class="tab-content">
-                                        <div class="tab-pane active show" id="allDialog" role="tabpanel">
-                                            <ul>
-                                                <li class="dialog-detail-item">
-                                                    <p>시작(최초)</p>
-                                                    <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
-                                                    <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
-                                                    <p>[사용자 반응]좋아요</p>
-                                                </li>
-                                                <li class="dialog-detail-item">
-                                                    <p>시작(최초)</p>
-                                                    <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
-                                                    <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
-                                                    <p>[사용자 반응]좋아요</p>
-                                                </li>
-                                                <li class="dialog-detail-item">
-                                                    <p>시작(최초)</p>
-                                                    <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
-                                                    <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
-                                                    <p>[사용자 반응]좋아요</p>
-                                                </li>
-                                                <li class="dialog-detail-item">
-                                                    <p>시작(최초)</p>
-                                                    <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
-                                                    <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
-                                                    <p>[사용자 반응]좋아요</p>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="tab-pane" id="dialogGood" role="tabpanel">
-                                            <ul>
-                                                <li class="dialog-detail-item">
-                                                    <p>시작(최초)</p>
-                                                    <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
-                                                    <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
-                                                    <p>[사용자 반응]좋아요</p>
-                                                </li>
-                                                <li class="dialog-detail-item">
-                                                    <p>시작(최초)</p>
-                                                    <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
-                                                    <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
-                                                    <p>[사용자 반응]좋아요</p>
-                                                </li>
-                                                <li class="dialog-detail-item">
-                                                    <p>시작(최초)</p>
-                                                    <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
-                                                    <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
-                                                    <p>[사용자 반응]좋아요</p>
-                                                </li>
-                                                <li class="dialog-detail-item">
-                                                    <p>시작(최초)</p>
-                                                    <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
-                                                    <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
-                                                    <p>[사용자 반응]좋아요</p>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="tab-pane" id="dialogBad" role="tabpanel">
-                                            <ul>
-                                                <li class="dialog-detail-item">
-                                                    <p>시작(최초)</p>
-                                                    <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
-                                                    <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
-                                                    <p>[사용자 반응]좋아요</p>
-                                                </li>
-                                                <li class="dialog-detail-item">
-                                                    <p>시작(최초)</p>
-                                                    <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
-                                                    <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
-                                                    <p>[사용자 반응]좋아요</p>
-                                                </li>
-                                                <li class="dialog-detail-item">
-                                                    <p>시작(최초)</p>
-                                                    <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
-                                                    <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
-                                                    <p>[사용자 반응]좋아요</p>
-                                                </li>
-                                                <li class="dialog-detail-item">
-                                                    <p>시작(최초)</p>
-                                                    <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
-                                                    <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
-                                                    <p>[사용자 반응]좋아요</p>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="tab-pane" id="noResponse" role="tabpanel">
-                                            <ul>
-                                                <li class="dialog-detail-item">
-                                                    <p>시작(최초)</p>
-                                                    <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
-                                                    <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
-                                                    <p>[사용자 반응]좋아요</p>
-                                                </li>
-                                                <li class="dialog-detail-item">
-                                                    <p>시작(최초)</p>
-                                                    <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
-                                                    <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
-                                                    <p>[사용자 반응]좋아요</p>
-                                                </li>
-                                                <li class="dialog-detail-item">
-                                                    <p>시작(최초)</p>
-                                                    <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
-                                                    <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
-                                                    <p>[사용자 반응]좋아요</p>
-                                                </li>
-                                                <li class="dialog-detail-item">
-                                                    <p>시작(최초)</p>
-                                                    <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
-                                                    <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
-                                                    <p>[사용자 반응]좋아요</p>
-                                                </li>
-                                            </ul>
-                                        </div>
+
+                <div class="modal-body">
+                    <div class="input-group mb-3">
+                        <label class="form-label">서비스</label>
+                        <input type="text" class="form-control" value="서비스 명(전체노출)" disabled>
+                    </div>
+                    <div class="input-group mb-3">
+                        <label class="form-label">지식</label>
+                        <input type="text" class="form-control" value="지식 명(전체노출)" disabled>
+                    </div>
+                    <div class="input-group mb-3">
+                        <label class="form-label">지식 파일 명</label>
+                        <input type="text" class="form-control" value="파일 명(전체노출)" disabled>
+                    </div>
+                    <div class="input-group mb-3">
+                        <label class="form-label">질의 등록일</label>
+                        <input type="text" class="form-control" value="2025-05-20 12:00:00" disabled>
+                    </div>
+                    <div class="input-group mb-3">
+                        <label class="form-label">사용자 ID</label>
+                        <input type="text" class="form-control" value="대화 사용자 ID" disabled>
+                    </div>
+                    <div class="input-group mb-3">
+                        <label class="form-label">사용자 질의</label>
+                        <textarea class="form-control" placeholder="" rows="5">사용자 질의 500자 노출 이후</textarea>
+                    </div>
+                    <div class="input-group mb-3">
+                        <label class="form-label">컨텍스트</label>
+                        <textarea class="form-control" placeholder="" rows="5">시스템 처리 질의 500자 노출 이후</textarea>
+                    </div>
+                    <div class="all-dialog-view">
+                        <a href="javasciprt:void(0);" class="all-dialog-view-toggle">전체 대화보기<i
+                                class="align-middle fas fa-fw fa-angle-down"></i></a>
+                        <div class="all-dialog-view-detail">
+                            <div class="tab">
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <a class="nav-link active" href="#allDialog" data-bs-toggle="tab" role="tab"
+                                            aria-selected="true">
+                                            전체대화</a>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <a class="nav-link" href="#dialogGood" data-bs-toggle="tab" role="tab"
+                                            aria-selected="true">
+                                            <i class="align-middle far fa-fw fa-hand-point-up"></i>
+                                            좋아요(00)</a>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <a class="nav-link" href="#dialogBad" data-bs-toggle="tab" role="tab"
+                                            aria-selected="false" tabindex="-1">
+                                            <i class="align-middle far fa-fw fa-hand-point-down"></i>
+                                            싫어요(00) </a>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <a class="nav-link" href="#noResponse" data-bs-toggle="tab" role="tab"
+                                            aria-selected="false" tabindex="-1">
+                                            <i class="align-middle me-2 far fa-fw fa-meh"></i>무반응</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active show" id="allDialog" role="tabpanel">
+                                        <ul>
+                                            <li class="dialog-detail-item">
+                                                <p>시작(최초)</p>
+                                                <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
+                                                <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
+                                                <p>[사용자 반응]좋아요</p>
+                                            </li>
+                                            <li class="dialog-detail-item">
+                                                <p>시작(최초)</p>
+                                                <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
+                                                <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
+                                                <p>[사용자 반응]좋아요</p>
+                                            </li>
+                                            <li class="dialog-detail-item">
+                                                <p>시작(최초)</p>
+                                                <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
+                                                <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
+                                                <p>[사용자 반응]좋아요</p>
+                                            </li>
+                                            <li class="dialog-detail-item">
+                                                <p>시작(최초)</p>
+                                                <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
+                                                <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
+                                                <p>[사용자 반응]좋아요</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-pane" id="dialogGood" role="tabpanel">
+                                        <ul>
+                                            <li class="dialog-detail-item">
+                                                <p>시작(최초)</p>
+                                                <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
+                                                <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
+                                                <p>[사용자 반응]좋아요</p>
+                                            </li>
+                                            <li class="dialog-detail-item">
+                                                <p>시작(최초)</p>
+                                                <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
+                                                <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
+                                                <p>[사용자 반응]좋아요</p>
+                                            </li>
+                                            <li class="dialog-detail-item">
+                                                <p>시작(최초)</p>
+                                                <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
+                                                <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
+                                                <p>[사용자 반응]좋아요</p>
+                                            </li>
+                                            <li class="dialog-detail-item">
+                                                <p>시작(최초)</p>
+                                                <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
+                                                <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
+                                                <p>[사용자 반응]좋아요</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-pane" id="dialogBad" role="tabpanel">
+                                        <ul>
+                                            <li class="dialog-detail-item">
+                                                <p>시작(최초)</p>
+                                                <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
+                                                <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
+                                                <p>[사용자 반응]좋아요</p>
+                                            </li>
+                                            <li class="dialog-detail-item">
+                                                <p>시작(최초)</p>
+                                                <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
+                                                <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
+                                                <p>[사용자 반응]좋아요</p>
+                                            </li>
+                                            <li class="dialog-detail-item">
+                                                <p>시작(최초)</p>
+                                                <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
+                                                <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
+                                                <p>[사용자 반응]좋아요</p>
+                                            </li>
+                                            <li class="dialog-detail-item">
+                                                <p>시작(최초)</p>
+                                                <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
+                                                <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
+                                                <p>[사용자 반응]좋아요</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-pane" id="noResponse" role="tabpanel">
+                                        <ul>
+                                            <li class="dialog-detail-item">
+                                                <p>시작(최초)</p>
+                                                <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
+                                                <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
+                                                <p>[사용자 반응]좋아요</p>
+                                            </li>
+                                            <li class="dialog-detail-item">
+                                                <p>시작(최초)</p>
+                                                <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
+                                                <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
+                                                <p>[사용자 반응]좋아요</p>
+                                            </li>
+                                            <li class="dialog-detail-item">
+                                                <p>시작(최초)</p>
+                                                <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
+                                                <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
+                                                <p>[사용자 반응]좋아요</p>
+                                            </li>
+                                            <li class="dialog-detail-item">
+                                                <p>시작(최초)</p>
+                                                <p>[사용자 아이디][00:00:00] 질의 내용 전체 출력</p>
+                                                <p>[봇 이름][00:00:00] 답변 내용 전체 출력</p>
+                                                <p>[사용자 반응]좋아요</p>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary">확인</button>
                 </div>

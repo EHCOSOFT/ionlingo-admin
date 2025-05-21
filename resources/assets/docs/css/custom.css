@@ -597,7 +597,8 @@ textarea {
     position: relative;
 }
 
-.dt-paging .btn-excel-download {
+.dt-paging .btn-excel-download,
+.dt-button {
     align-items: center;
     display: flex;
     gap: var(--space-4-min);
@@ -709,4 +710,15 @@ textarea {
 
 .error-wrap h1 {
     font-weight: 700;
+}
+
+table.dataTable.table-striped>tbody>tr:nth-of-type(odd)>*,
+table.table.dataTable.table-striped>tbody>tr:nth-of-type(odd)>* {
+    background: none;
+}
+
+table.dataTable.table-striped>tbody>tr:hover,
+table.table.dataTable.table-striped>tbody>tr:hover {
+    background: rgba(var(--bs-emphasis-color-rgb), .05);
+    ;
 }
